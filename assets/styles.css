@@ -226,8 +226,9 @@ a.g-label:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 
   background: var(--paper); border-radius: var(--radius-photo); overflow: hidden;
   box-shadow: 0 30px 60px -40px rgba(19, 32, 58, .45);
 }
-.journey-art { display: grid; place-items: center; min-height: 340px; padding: 24px; }
-.journey-art img { width: 100%; max-width: 540px; height: auto; mix-blend-mode: multiply; }
+/* Ivory panel: the highlights collage is drawn on ivory, so its edges disappear into it */
+.journey-art { display: grid; place-items: center; min-height: 340px; padding: 24px; background: var(--ivory); }
+.journey-art img { width: 100%; height: auto; }
 .journey-body { padding: 48px 48px 48px 16px; display: grid; gap: 16px; align-content: center; }
 .journey-body h3 { font-size: 46px; line-height: 1.05; }
 .date-chip {
