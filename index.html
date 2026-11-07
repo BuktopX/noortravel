@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noor Travel — авторские туры с гидом</title>
+<meta name="description" content="Авторские туры Noor Travel: документы, отели, переезды и гид — на нас. Вам остаётся собрать чемодан.">
+<link rel="canonical" href="https://noortravel.kz/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Noor Travel">
+<meta property="og:url" content="https://noortravel.kz/">
+<meta property="og:title" content="Noor Travel — авторские туры с гидом">
+<meta property="og:description" content="Документы, отели, переезды и гид — на нас. Небольшие группы до 6 человек. Вам остаётся собрать чемодан.">
+<meta property="og:image" content="https://noortravel.kz/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#13203A">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;0,700;1,500&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TravelAgency","name":"Noor Travel","url":"https://noortravel.kz/","telephone":"+77073398432","image":"https://noortravel.kz/assets/og/home.jpg","address":{"@type":"PostalAddress","streetAddress":"ул. Шыганак, 1","addressLocality":"Астана","addressCountry":"KZ"},"openingHours":"Mo-Su 10:00-21:00","sameAs":["https://instagram.com/noortravel.kz"]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<div class="intro" id="intro">
+  <img src="assets/logo/logo-animated-light-bg.svg" alt="" width="520" height="246">
+  <button class="intro-skip" type="button">Пропустить</button>
+</div>
+<script>
+  // The logo intro plays at most once a day (in-app browsers often lose sessionStorage between taps).
+  // A tap, any key or the button skips it.
+  (() => {
+    const intro = document.getElementById('intro');
+    const DAY = 864e5;
+    try {
+      if (Date.now() - Number(localStorage.getItem('noorIntroSeen') || 0) < DAY) { intro.remove(); return; }
+      localStorage.setItem('noorIntroSeen', String(Date.now()));
+    } catch {}
+    const skip = () => intro.classList.add('is-skipped');
+    intro.addEventListener('click', skip);
+    addEventListener('keydown', skip, { once: true });
+    intro.addEventListener('animationend', (e) => {
+      if (e.target !== intro) return;
+      intro.remove();
+      document.getElementById('main')?.focus({ preventScroll: true });
+    });
+  })();
+</script>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Noor Travel — на главную">
+      <img src="assets/logo/logo-light-bg.svg" alt="Noor Travel" width="128" height="60">
+    </a>
+    <nav class="main-nav" aria-label="Основное меню">
+      <a href="#tours">Туры</a>
+      <a href="#how">Как это работает</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-tools">
+      <a class="phone-link" data-tel href="tel:+77073398432">+7 707 339 84 32</a>
+      <div class="lang" role="group" aria-label="Язык сайта">
+        <span aria-current="true">RU</span>
+        <span class="soon" title="Казахская версия в работе">KZ</span>
+      </div>
+      <a class="btn btn-primary header-cta" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Авторские туры с гидом</p>
+        <h1>Вы летите в путешествие. Остальное мы берём на себя</h1>
+        <p class="lead">Документы, отели, переезды и программа по дням — на нас. Местный гид ведёт группу по маршруту. Вам остаётся собрать чемодан.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Написать в WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#tours">Смотреть туры</a>
+        </div>
+        <p class="hero-note">Ответит ваш личный менеджер, а не бот.</p>
+      </div>
+      <div class="globe" data-globe="home" data-label="Глобус с маршрутами из Алматы в Японию, Гонконг, Куала-Лумпур, Австралию, Великобританию и Исландию"></div>
+    </div>
+  </section>
+
+  <section class="section tight" id="tours" aria-labelledby="tours-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Ближайшие выезды</p>
+        <h2 id="tours-title">Куда едем</h2>
+      </div>
+        <article class="journey">
+          <div class="journey-art">
+            <img loading="lazy" src="assets/illustrations/japan/fuji.jpg" alt="Рисунок: синкансэн среди полей, вдали гора Фудзи" width="1024" height="1024">
+          </div>
+          <div class="journey-body">
+            <span class="date-chip">3–11 декабря</span>
+            <h3>Япония</h3>
+            <p class="card-route">Токио · Киото · Нара · Осака</p>
+            <ul class="meta">
+              <li>Вылет из Алматы</li>
+              <li>Перелёт, отели APA, синкансэн и местный гид включены</li>
+              <li>Группа до 6 человек · от 1&nbsp;200&nbsp;000&nbsp;₸</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-primary" href="tours/japan.html">Подробнее о туре</a>
+              <a class="btn btn-ghost" data-wa="Здравствуйте! Интересует тур «Япония, 3–11 декабря». Пришлите, пожалуйста, программу." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D1%83%D1%80%20%C2%AB%D0%AF%D0%BF%D0%BE%D0%BD%D0%B8%D1%8F%2C%203%E2%80%9311%20%D0%B4%D0%B5%D0%BA%D0%B0%D0%B1%D1%80%D1%8F%C2%BB.%20%D0%9F%D1%80%D0%B8%D1%88%D0%BB%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+        <div class="soon-block" id="soon" aria-labelledby="soon-title">
+          <div class="soon-head">
+            <div>
+              <p class="eyebrow">Скоро</p>
+              <h3 id="soon-title">Готовим новые туры</h3>
+            </div>
+            <p>Даты и программы появятся здесь. Напишите нам — сообщим первыми.</p>
+          </div>
+          <ul class="soon-list">
+            <li><span>BTS-тур в Куала-Лумпур</span><a data-wa="Здравствуйте! Интересует BTS-тур в Куала-Лумпур. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20BTS-%D1%82%D1%83%D1%80%20%D0%B2%20%D0%9A%D1%83%D0%B0%D0%BB%D0%B0-%D0%9B%D1%83%D0%BC%D0%BF%D1%83%D1%80.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+            <li><span>BTS-тур в Гонконг</span><a data-wa="Здравствуйте! Интересует BTS-тур в Гонконг. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20BTS-%D1%82%D1%83%D1%80%20%D0%B2%20%D0%93%D0%BE%D0%BD%D0%BA%D0%BE%D0%BD%D0%B3.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+            <li><span>Рождественский Евротур</span><a data-wa="Здравствуйте! Интересует Рождественский Евротур. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%A0%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D0%95%D0%B2%D1%80%D0%BE%D1%82%D1%83%D1%80.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+            <li><span>Великобритания</span><a data-wa="Здравствуйте! Интересует тур в Великобританию. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D1%83%D1%80%20%D0%B2%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B1%D1%80%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8E.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+            <li><span>Исландия</span><a data-wa="Здравствуйте! Интересует тур в Исландию. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D1%83%D1%80%20%D0%B2%20%D0%98%D1%81%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8%D1%8E.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+            <li><span>Австралия</span><a data-wa="Здравствуйте! Интересует тур в Австралию. Сообщите, пожалуйста, когда будут даты." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D1%83%D1%80%20%D0%B2%20%D0%90%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%BB%D0%B8%D1%8E.%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%20%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener">Подробнее →</a></li>
+          </ul>
+        </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-title">
+    <div class="wrap why">
+      <div class="why-intro">
+        <div class="section-head">
+          <p class="eyebrow">Почему Noor Travel</p>
+          <h2 id="why-title">Путешествие без забот об организации</h2>
+        </div>
+        <img class="why-art" src="assets/illustrations/japan/home-suitcase.jpg" alt="Рисунок: открытый чемодан с дорожными наклейками, рядом веер и кукла дарума" width="800" height="800" loading="lazy">
+      </div>
+      <ul class="why-list">
+        <li>
+          <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg></span>
+          <div>
+            <h3>Мы берём организацию на себя</h3>
+            <p>Отели, билеты, пересадки и программа продуманы заранее.</p>
+          </div>
+        </li>
+        <li>
+          <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+          <div>
+            <h3>Помогаем с документами</h3>
+            <p>Подскажем, что собрать, и подадим документы за вас.</p>
+            <p class="small-note">Решение по визе принимает консульство.</p>
+          </div>
+        </li>
+        <li>
+          <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div>
+            <h3>Небольшая группа и местный гид</h3>
+            <p>Не больше 6 человек. Местный гид встречает вас и ведёт по маршруту.</p>
+          </div>
+        </li>
+        <li>
+          <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+          <div>
+            <h3>Настоящие кадры из поездок</h3>
+            <p>Фотографии в галерее ниже сняли наши туристы.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section paper" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Как это работает</p>
+        <h2 id="how-title">Четыре шага до поездки</h2>
+      </div>
+      <ol class="timeline">
+        <li><h3>Напишите нам</h3><p>В WhatsApp или по телефону. Ответим и зададим пару вопросов о поездке.</p></li>
+        <li><h3>Получите программу</h3><p>Маршрут по дням, условия участия и список документов.</p></li>
+        <li><h3>Передайте документы</h3><p>В Астане — по доверенности, из других городов — курьером или почтой. Дальше подаём мы.</p></li>
+        <li class="has-icon"><span class="timeline-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span><h3>Летите</h3><p>Гид, отели и переезды уже организованы.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Кадры наших туристов</p>
+        <h2 id="gallery-title">Это не сток. Это наши туристы</h2>
+      </div>
+      <div class="photo-grid">
+        <figure><img src="assets/photos/japan/nara-deer.jpg" alt="Олень идёт навстречу по мощёной площади в Наре" width="960" height="1280" loading="lazy"><figcaption><strong>Нара</strong> · Олени гуляют сами по себе</figcaption></figure>
+        <figure><img src="assets/photos/japan/tokyo-shibuya-night.jpg" alt="Турист смотрит на неоновые экраны Сибуи ночью" width="720" height="1280" loading="lazy" style="object-position: 50% 35%"><figcaption><strong>Токио</strong> · Сибуя ночью</figcaption></figure>
+        <figure><img src="assets/photos/japan/kyoto-yasaka-pagoda.jpg" alt="Туристы на старой улице Киото, за ними пагода Ясака" width="960" height="1280" loading="lazy" style="object-position: 50% 40%"><figcaption><strong>Киото</strong> · Пагода Ясака</figcaption></figure>
+        <figure><img src="assets/photos/japan/tokyo-hachiko.jpg" alt="Туристы у памятника Хатико в Токио" width="960" height="1280" loading="lazy" style="object-position: 50% 60%"><figcaption><strong>Токио</strong> · Памятник Хатико</figcaption></figure>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <blockquote><span class="todo">[Отзыв туриста — взять с разрешения]</span></blockquote>
+          <figcaption><span class="todo">[Имя]</span>, тур в Японию</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote><span class="todo">[Отзыв туриста — взять с разрешения]</span></blockquote>
+          <figcaption><span class="todo">[Имя]</span>, <span class="todo">[тур]</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="about" aria-labelledby="about-title">
+    <div class="wrap trust-grid">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow">О нас</p>
+        <h2 id="about-title">Noor Travel</h2>
+        <p class="about-lead">Основатель Noor Travel — Алибек Рысбек, в туризме больше трёх лет. Мы возим небольшие группы, до 6 человек, и сами ведём каждую поездку: от документов до встречи в аэропорту.</p>
+        <div class="person">
+          <div class="avatar"><span class="todo">[фото Алибека]</span></div>
+          <div><p class="person-name">Алибек Рысбек</p><p class="person-role">Основатель</p></div>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Компания</dt><dd>ИП «Noortravel.kz»</dd></div>
+        <div><dt>ИИН</dt><dd>040824500098</dd></div>
+        <div><dt>Турагентская деятельность</dt><dd>Уведомление № KZ59UWG00019435 от 10.07.2026, Комитет индустрии туризма МТС РК</dd></div>
+        <div><dt>Офис</dt><dd>Астана, ул. Шыганак, 1</dd></div>
+        <div><dt>Часы работы</dt><dd>Ежедневно, 10:00–21:00</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="contacts" aria-labelledby="contacts-title">
+    <div class="wrap cta-box">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow">Контакты</p>
+        <h2 id="contacts-title">Напишите нам — ответим лично</h2>
+        <p class="lead">Расскажем о ближайших выездах, пришлём программу и условия участия.</p>
+        <div class="actions" style="margin-top:8px">
+          <a class="btn btn-primary" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Написать в WhatsApp
+          </a>
+          <a class="btn btn-ghost" data-tel href="tel:+77073398432">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить
+          </a>
+        </div>
+      </div>
+      <div class="managers">
+        <div class="manager">
+          <div class="avatar"><span class="todo">[фото Жасмин]</span></div>
+          <p class="manager-name">Жасмин</p>
+          <p class="small-note">Япония и BTS-туры</p>
+          <a class="text-link" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">Написать в WhatsApp →</a>
+        </div>
+        <div class="manager">
+          <div class="avatar"><span class="todo">[фото Асии]</span></div>
+          <p class="manager-name">Асия</p>
+          <p class="small-note">Евротуры</p>
+          <a class="text-link" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">Написать в WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo/logo-dark-bg.svg" alt="Noor Travel" width="152" height="72">
+        <p>Авторские туры из Казахстана с местными гидами в каждой стране.</p>
+      </div>
+      <div>
+        <h3>Туры</h3>
+        <ul>
+          <li><a href="tours/japan.html">Япония, 3–11 декабря</a></li>
+          <li><a href="#soon">Скоро: BTS-туры, Европа, Исландия, Австралия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Связаться</h3>
+        <ul>
+          <li><a data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a data-tel href="tel:+77073398432">+7 707 339 84 32</a></li>
+          <li><a href="https://instagram.com/noortravel.kz" target="_blank" rel="noopener">Instagram @noortravel.kz</a></li>
+          <li>Астана, ул. Шыганак, 1 · ежедневно 10:00–21:00</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Noor Travel · noortravel.kz</p>
+  </div>
+</footer>
+
+<nav class="contact-bar" aria-label="Связаться">
+  <a class="btn btn-primary" data-wa="Здравствуйте! Хочу узнать о турах Noor Travel." href="https://wa.me/77073398432?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%20%D1%82%D1%83%D1%80%D0%B0%D1%85%20Noor%20Travel." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    WhatsApp
+  </a>
+  <a class="btn btn-ghost" data-tel href="tel:+77073398432">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Позвонить
+  </a>
+</nav>
+
+<script src="assets/site.js"></script>
+<script src="assets/globe.js"></script>
+</body>
+</html>

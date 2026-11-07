@@ -1,0 +1,169 @@
+/* Tour page only: hero, scroll route, hotels, departures and the floating tour pill. Builds on the tokens in styles.css. */
+
+/* ---------- Hero (the globe itself is styled in styles.css) ---------- */
+.tour-hero .hero-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+/* overflow-x: clip keeps globe labels near the edge from widening the page */
+.tour-hero { overflow-x: clip; }
+
+/* ---------- Scroll route ---------- */
+.route-head { display: grid; gap: 16px; justify-items: center; text-align: center; max-width: 760px; margin: 0 auto; padding-top: 104px; }
+.route-head .lead { margin: 0 auto; }
+.route-lead { font-family: var(--serif); font-weight: 500; font-size: clamp(21px, 2vw, 26px); line-height: 1.45; }
+.scroll-hint { display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 15px; color: var(--muted); }
+.scroll-hint span { width: 1.5px; height: 36px; background: linear-gradient(var(--gold), transparent); animation: hint 1.8s ease-in-out 3; }
+@keyframes hint { 0%, 100% { transform: translateY(-4px); opacity: .5; } 50% { transform: translateY(6px); opacity: 1; } }
+
+/* overflow-x: clip keeps the route from widening the page */
+.route { position: relative; padding-block: 40px 96px; overflow-x: clip; }
+.route figure { margin: 0; }
+.route-svg, .vehicle-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.route-svg { z-index: 0; }
+.vehicle-svg { z-index: 3; }
+.route-base { fill: none; stroke: var(--navy); stroke-opacity: .28; stroke-width: 2; stroke-dasharray: 2 9; stroke-linecap: round; }
+.route-done { fill: none; stroke: var(--gold); stroke-width: 3; stroke-linecap: round; }
+.vehicle { transition: opacity .35s ease; }
+.vehicle.is-hidden { opacity: 0; }
+
+/* Railway: sleepers, then a wide stroke hollowed by an ivory one so two thin rails remain */
+.rails path { fill: none; }
+#railTies { stroke: var(--navy); stroke-opacity: .32; stroke-width: 20; stroke-dasharray: 2.5 7; }
+#railOuter { stroke: var(--navy); stroke-opacity: .6; stroke-width: 13; }
+#railOuterDone { stroke: var(--gold); stroke-width: 13; }
+#railInner { stroke: var(--ivory); stroke-width: 9; }
+
+.car { transition: opacity .2s ease; }
+.car.is-hidden { opacity: 0; }
+.car-body { fill: #FDFDFB; stroke: var(--navy); stroke-width: 1.4; stroke-linejoin: round; }
+.car-stripe { fill: none; stroke: #1F3F86; stroke-width: 1.8; }
+.car-glass { fill: var(--navy); }
+.car-panto { fill: none; stroke: var(--navy); stroke-width: 1; stroke-linecap: round; }
+
+.stops { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+.stop, .scenery { display: grid; grid-template-columns: minmax(0, 1fr) 200px minmax(0, 1fr); align-items: center; padding-block: 9vh; }
+.stop-dot {
+  grid-column: 2; grid-row: 1; justify-self: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--ivory); border: 2px solid var(--navy);
+  position: relative; transition: background-color .3s, border-color .3s;
+}
+.stop-dot::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 2px solid var(--gold); opacity: 0; transform: scale(.6); }
+.is-reached .stop-dot { background: var(--gold); border-color: var(--gold); }
+.is-reached .stop-dot::after { animation: ring 1s ease-out 1; }
+@keyframes ring { 0% { opacity: .9; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.7); } }
+
+.stop-art, .stop-text { grid-row: 1; }
+.art-left .stop-art { grid-column: 1; justify-self: end; }
+.art-left .stop-text { grid-column: 3; }
+.art-right .stop-art { grid-column: 3; justify-self: start; }
+.art-right .stop-text { grid-column: 1; justify-self: end; text-align: right; }
+.art-right .stop-text .tags { justify-content: flex-end; }
+
+/* Illustrations start black and white and paint in when the traveller reaches the stop */
+.stop-art { position: relative; width: min(420px, 100%); aspect-ratio: 1; }
+.stop-art img {
+  width: 100%; height: 100%; object-fit: contain;
+  /* The generated backgrounds are a few shades off the page ivory, so fade the empty outer band */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-composite: intersect;
+  filter: grayscale(1) opacity(.5); transform: scale(.94);
+  transition: filter .9s ease, transform .9s cubic-bezier(.22, 1, .36, 1);
+}
+.is-reached .stop-art img { filter: none; transform: none; }
+.stop-art.no-art { border-radius: 50%; background: var(--paper); border: 1.5px dashed var(--line); display: grid; place-items: center; }
+.stop-art.no-art::before { content: attr(data-kanji); font-family: var(--serif); font-size: clamp(64px, 9vw, 120px); color: var(--navy); opacity: .1; line-height: 1; }
+
+
+.stop-text { display: grid; gap: 12px; max-width: 420px; transform: translateY(14px); transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+.is-reached .stop-text { transform: none; }
+.stop-text h2 { font-size: clamp(36px, 4.4vw, 52px); }
+.stop-text h2 small { font-size: .5em; color: var(--gold-text); margin-left: 10px; font-weight: 500; }
+.stop-text p { color: var(--muted); }
+.stop-text .btn { justify-self: start; margin-top: 8px; }
+.art-right .stop-text .btn { justify-self: end; }
+.meta-line { font-size: 16px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 4px 0 0; }
+.tags li { font-size: 16px; padding: 5px 12px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+
+.scenery { padding-block: 2vh; }
+.scenery .stop-art { width: min(300px, 100%); }
+.scenery .stop-text { max-width: 300px; }
+.scenery .stop-text p { font-size: 16px; }
+
+/* Last stop: the Almaty airport picture with WhatsApp right under it.
+   The button waits dimmed and lights up together with the picture when the plane lands. */
+.landing-art { grid-column: 1; grid-row: 1; justify-self: end; width: min(420px, 100%); display: grid; justify-items: center; gap: 20px; }
+.landing-art .stop-art { width: 100%; }
+.landing-cta { opacity: .45; filter: grayscale(1); transition: opacity .9s ease, filter .9s ease, box-shadow .9s ease; }
+.is-reached .landing-cta { opacity: 1; filter: none; box-shadow: 0 0 0 6px rgba(242, 212, 155, .35), 0 0 32px rgba(242, 212, 155, .75); }
+.is-reached .landing-art .stop-art::before {
+  content: ""; position: absolute; inset: -6%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 212, 155, .45) 0%, rgba(246, 241, 232, 0) 68%);
+}
+
+/* ---------- Hotels ---------- */
+.split-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px; margin-bottom: 36px; }
+.split-head .lead { max-width: 460px; }
+.hotels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.hotel { padding: 28px; border-radius: var(--radius-photo); background: var(--ivory); display: grid; gap: 8px; align-content: start; }
+.hotel-city { font-weight: 600; font-size: 21px; }
+
+/* ---------- Is this tour for you? ---------- */
+.fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 72px; }
+.fit h3 { font-family: var(--sans); font-size: 20px; font-weight: 600; margin-bottom: 14px; }
+.fit-list { list-style: none; padding: 0; margin: 0; border-bottom: 1px solid var(--line); }
+.fit-list li { padding: 16px 0; border-top: 1px solid var(--line); }
+
+/* ---------- Next departure ---------- */
+.departure {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 24px 48px;
+  padding: 32px 36px; background: #1B2944; border-radius: var(--radius-photo);
+}
+.departure > div { display: grid; gap: 2px; flex: 1 1 150px; }
+.departure span { font-size: 15px; color: var(--on-navy-muted); }
+.departure strong { font-weight: 600; font-size: 19px; color: var(--on-navy); }
+.departure .departure-date { font-family: var(--serif); font-weight: 700; font-size: 28px; }
+.departure-terms { margin-top: 20px; font-size: 17px; }
+
+/* ---------- Documents and team ---------- */
+.docs-list { margin-top: 32px; }
+.team { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; margin-bottom: 32px; }
+.team-card { padding: 24px; background: var(--ivory); border-radius: var(--radius-photo); align-items: center; gap: 20px; }
+.team-card .avatar { width: 96px; height: 96px; }
+.team-photos img { aspect-ratio: 3 / 4; }
+
+/* ---------- Floating tour pill (desktop; phones keep the contact bar) ---------- */
+.tour-pill {
+  position: fixed; left: 50%; bottom: 20px; z-index: 55;
+  display: flex; align-items: center; gap: 20px; padding: 8px 8px 8px 28px;
+  background: var(--paper); border-radius: 999px; box-shadow: 0 20px 40px -18px rgba(19, 32, 58, .45);
+  transform: translate(-50%, 140%); opacity: 0; visibility: hidden;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .3s ease, visibility 0s linear .4s;
+}
+.tour-pill.is-shown { transform: translate(-50%, 0); opacity: 1; visibility: visible; transition-delay: 0s; }
+.tour-pill-name { font-weight: 600; white-space: nowrap; }
+.tour-pill-meta { color: var(--muted); white-space: nowrap; }
+.tour-pill .btn { min-height: 48px; font-size: 16px; }
+
+/* Same breakpoint as styles.css: phones, including short landscape phones */
+@media (max-width: 899px), (max-height: 500px) and (pointer: coarse) {
+  .tour-hero .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .tour-pill { display: none; }
+  .departure { padding: 24px; }
+  .route-head { padding-top: 64px; }
+  .stop, .scenery { grid-template-columns: 56px minmax(0, 1fr); row-gap: 18px; padding-block: 5vh; }
+  .stop-dot { grid-column: 1; grid-row: 1; justify-self: start; margin-left: 16px; align-self: start; margin-top: 28px; }
+  .art-left .stop-art, .art-right .stop-art { grid-column: 2; grid-row: 1; justify-self: start; width: min(320px, 100%); }
+  .art-left .stop-text, .art-right .stop-text { grid-column: 2; grid-row: 2; justify-self: start; text-align: left; }
+  .art-right .stop-text .tags { justify-content: flex-start; }
+  .art-right .stop-text .btn { justify-self: start; }
+  .scenery .stop-art { width: min(220px, 100%); }
+  .landing-art { grid-column: 2; grid-row: 1; justify-self: start; width: min(320px, 100%); justify-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint span { animation: none; }
+  .stop-art img, .stop-text, .car, .vehicle, .stop-dot, .landing-cta, .tour-pill { transition: none; }
+  .is-reached .stop-dot::after { animation: none; }
+}
