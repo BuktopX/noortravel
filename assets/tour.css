@@ -94,7 +94,9 @@
 /* Last stop: the Almaty airport picture with WhatsApp right under it.
    The button waits dimmed and lights up together with the picture when the plane lands. */
 .landing-art { grid-column: 1; grid-row: 1; justify-self: end; width: min(420px, 100%); display: grid; justify-items: center; gap: 20px; }
-.landing-art .stop-art { width: 100%; }
+.art-right .landing-art { grid-column: 3; justify-self: start; }
+/* The picture fills the landing column on either side; beats the .art-left/.art-right column rules */
+.stop .landing-art .stop-art { grid-column: 1; grid-row: auto; justify-self: stretch; width: 100%; }
 .landing-cta { opacity: .45; filter: grayscale(1); transition: opacity .9s ease, filter .9s ease, box-shadow .9s ease; }
 .is-reached .landing-cta { opacity: 1; filter: none; box-shadow: 0 0 0 6px rgba(242, 212, 155, .35), 0 0 32px rgba(242, 212, 155, .75); }
 .is-reached .landing-art .stop-art::before {
@@ -159,7 +161,7 @@
   .art-right .stop-text .tags { justify-content: flex-start; }
   .art-right .stop-text .btn { justify-self: start; }
   .scenery .stop-art { width: min(220px, 100%); }
-  .landing-art { grid-column: 2; grid-row: 1; justify-self: start; width: min(320px, 100%); justify-items: start; }
+  .landing-art, .art-right .landing-art { grid-column: 2; grid-row: 1; justify-self: start; width: min(320px, 100%); justify-items: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {

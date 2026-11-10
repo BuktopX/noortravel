@@ -227,6 +227,7 @@ a.g-label:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 
   box-shadow: 0 30px 60px -40px rgba(19, 32, 58, .45);
 }
 /* Ivory panel: the highlights collage is drawn on ivory, so its edges disappear into it */
+.journey + .journey { margin-top: 32px; }
 .journey-art { display: grid; place-items: center; min-height: 340px; padding: 24px; background: var(--ivory); }
 .journey-art img { width: 100%; height: auto; }
 .journey-body { padding: 48px 48px 48px 16px; display: grid; gap: 16px; align-content: center; }

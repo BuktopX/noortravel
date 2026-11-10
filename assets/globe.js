@@ -32,7 +32,7 @@
         { name: 'Япония', lat: 35.68, lon: 139.69, href: 'tours/japan.html' },
         { name: 'Гонконг', lat: 22.32, lon: 114.17 },
         { name: 'Куала-Лумпур', lat: 3.14, lon: 101.69 },
-        { name: 'Австралия', lat: -33.87, lon: 151.21 },
+        { name: 'Австралия', lat: -33.87, lon: 151.21, href: 'tours/australia-nz.html' },
         { name: 'Великобритания', lat: 51.51, lon: -0.13 },
         { name: 'Исландия', lat: 64.15, lon: -21.94 }
       ]
@@ -44,6 +44,18 @@
       flight: { name: 'Токио', lat: 35.68, lon: 139.69 },
       train: [[35.68, 139.69], [35.01, 135.77], [34.69, 135.80], [34.69, 135.50]],
       trainLabel: 'Киото · Нара · Осака'
+    },
+    // Australia + New Zealand: a long flight to Sydney, then short flights between the cities (hops).
+    // City order follows the client's PDF; change it here and on the page together.
+    'australia-nz': {
+      finalT: 10,
+      view: (t, mx, my) => { const e = easeInOut(t / 6.5); return { lon: 72 + 58 * e + 3 * Math.sin(t * 0.1) + mx * 14, lat: 30 - 36 * e - my * 8 }; },
+      from: ALMATY,
+      flight: { name: 'Сидней', lat: -33.87, lon: 151.21, side: 'right' },
+      hops: [
+        { name: 'Мельбурн', lat: -37.81, lon: 144.96, side: 'left' },
+        { name: 'Веллингтон', lat: -41.29, lon: 174.78, side: 'right' }
+      ]
     }
   };
 
@@ -130,7 +142,7 @@
     // Scene data
     const from = vec(scene.from.lat, scene.from.lon);
     const cities = [{ v: from, el: makeCity(scene.from.name), at: 1.2, side: 'left' }];
-    let dests = [], heads = [], stops = [];
+    let dests = [], heads = [], stops = [], hops = [];
     if (scene.to) {
       dests = scene.to.map((d) => ({ v: vec(d.lat, d.lon) }));
       scene.to.forEach((d, i) => cities.push({ v: dests[i].v, el: makeCity(d.name, d.href), at: 1 + i * 0.55 + 2.0, side: 'auto' }));
@@ -138,9 +150,15 @@
     } else {
       const tk = vec(scene.flight.lat, scene.flight.lon);
       dests = [{ v: tk }];
-      stops = scene.train.map((c) => vec(c[0], c[1]));
-      cities.push({ v: tk, el: makeCity(scene.flight.name), at: 5.0, side: 'above' });
-      cities.push({ v: stops[2], el: makeCity(scene.trainLabel), at: 6.8, side: 'below-left' });
+      cities.push({ v: tk, el: makeCity(scene.flight.name), at: 5.0, side: scene.flight.side || 'above' });
+      if (scene.train) {
+        stops = scene.train.map((c) => vec(c[0], c[1]));
+        cities.push({ v: stops[2], el: makeCity(scene.trainLabel), at: 6.8, side: 'below-left' });
+      }
+      if (scene.hops) {
+        hops = [tk, ...scene.hops.map((h) => vec(h.lat, h.lon))];
+        scene.hops.forEach((h, i) => cities.push({ v: hops[i + 1], el: makeCity(h.name), at: 5.9 + i * 1.1, side: h.side || 'auto' }));
+      }
       heads = [makeHead()];
     }
 
@@ -262,6 +280,18 @@
           head.style.opacity = 1;
         } else head.style.opacity = 0;
       });
+      // Short flights after landing (Australia + NZ): low arcs drawn one after another
+      if (hops.length) {
+        const legs = hops.length - 1;
+        for (let i = 0; i < legs; i++) {
+          const hp = easeInOut((t - 5.4 - i * 1.1) / 1.1), pts = [];
+          for (let j = 0; j <= 24; j++) {
+            const f = j / 24; if (f > hp) break;
+            pts.push(proj(slerp(hops[i], hops[i + 1], f), 0.035 * Math.sin(Math.PI * f)));
+          }
+          routeD += line(pts);
+        }
+      }
       setD([routeGlow, route], routeD);
       setD([trailGlow, trail], trailD);
 
