@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анкета по турам — Noor Travel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#13203A">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;0,700;1,500&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/anketa.css">
+</head>
+<body class="anketa-page">
+<a class="skip" href="#anketaForm">Перейти к вопросам</a>
+
+<header class="anketa-header">
+  <div class="wrap">
+    <div class="anketa-top">
+      <a class="anketa-brand" href="index.html" aria-label="Noor Travel">
+        <img src="assets/logo/logo-light-bg.svg" alt="Noor Travel" width="112" height="52">
+      </a>
+      <div class="progress-meta">
+        <span class="save-badge" id="saveStatus" aria-live="polite">Черновик сохраняется автоматически</span>
+        <span class="progress-count" id="progressCount">Готово: 0 / 25</span>
+      </div>
+    </div>
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <nav class="section-pills" aria-label="Разделы анкеты">
+      <a href="#sec-japan">1. Япония</a>
+      <a href="#sec-aunz">2. Австралия и НЗ</a>
+      <a href="#sec-reviews">3. Отзывы</a>
+      <a href="#sec-general">4. Общее</a>
+      <a href="#sec-send">Отправка</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap anketa-main" id="main">
+  <div class="readback-banner" id="readbackBanner" hidden>
+    <div>
+      <strong>Открыты заполненные ответы</strong>
+      <p>Вы видите сохранённый вариант по ссылке. Можно сразу скопировать текст или подправить ответы.</p>
+    </div>
+    <div class="readback-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="btnBannerCopyText">Скопировать текст</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="btnBannerCopyJson">Скопировать JSON</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="btnBannerEdit">Редактировать</button>
+    </div>
+  </div>
+
+  <section class="anketa-hero">
+    <p class="eyebrow">Бриф для запуска сайта</p>
+    <h1>Короткая анкета по деталям туров</h1>
+    <p class="lead">Собрали всё, чего не хватает на страницах сайта. Где возможно — просто нажмите на вариант. Если чего-то пока нет под рукой, смело пропускайте.</p>
+  </section>
+
+  <form id="anketaForm" novalidate>
+
+    <!-- РАЗДЕЛ 1: ЯПОНИЯ -->
+    <section class="q-section" id="sec-japan" aria-labelledby="title-japan">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 1 из 4</p>
+        <h2 id="title-japan">Тур в Японию (3–11 декабря)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <article class="q-card" data-q="1">
+        <div class="q-head">
+          <span class="q-num">1</span>
+          <h3>Даты тура в Японию</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Даты тура в Японию">
+          <label class="chip"><input type="radio" name="jp_dates" value="Оставляем 3–11 декабря 2026"><span>Оставляем 3–11 декабря 2026</span></label>
+          <label class="chip"><input type="radio" name="jp_dates" value="Уже планируем новые даты"><span>Уже планируем новые даты</span></label>
+          <label class="chip"><input type="radio" name="jp_dates" value="Убрать даты / «по запросу»"><span>Убрать даты / «по запросу»</span></label>
+        </div>
+        <div class="cond" data-cond-for="jp_dates" data-cond-val="Уже планируем новые даты" hidden>
+          <label class="field-label" for="jp_dates_custom">Какие новые даты поставить?</label>
+          <input class="input" id="jp_dates_custom" name="jp_dates_custom" type="text" placeholder="Например: 15–23 марта 2027">
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="q-card" data-q="2">
+        <div class="q-head">
+          <span class="q-num">2</span>
+          <h3>Сколько свободных мест осталось (из 6)?</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Свободных мест в Японию">
+          <label class="chip"><input type="radio" name="jp_spots" value="0"><span>0</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="1"><span>1</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="2"><span>2</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="3"><span>3</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="4"><span>4</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="5"><span>5</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="6"><span>6</span></label>
+          <label class="chip"><input type="radio" name="jp_spots" value="Не показывать число"><span>Не показывать число</span></label>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="q-card" data-q="3">
+        <div class="q-head">
+          <span class="q-num">3</span>
+          <h3>Дни, ночи и отели APA по городам</h3>
+        </div>
+        <p class="q-hint">Заполните то, что уже известно — остальные поля можно оставить пустыми.</p>
+        <div class="city-grid">
+          <div class="city-box">
+            <p class="city-title">Токио</p>
+            <div class="city-fields">
+              <div>
+                <label class="field-label" for="jp_tokyo_days">Какие дни тура</label>
+                <input class="input" id="jp_tokyo_days" name="jp_tokyo_days" type="text" placeholder="напр. 1–4">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="jp_tokyo_nights">
+                    <button type="button" class="chip-btn" data-val="2">2</button>
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                    <button type="button" class="chip-btn" data-val="4">4</button>
+                    <button type="button" class="chip-btn" data-val="5">5</button>
+                  </div>
+                  <input class="input input-sm" name="jp_tokyo_nights" type="text" inputmode="numeric" placeholder="или своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="jp_tokyo_hotel">Отель APA и район</label>
+                <input class="input" id="jp_tokyo_hotel" name="jp_tokyo_hotel" type="text" placeholder="напр. APA Hotel Shinjuku">
+              </div>
+            </div>
+          </div>
+
+          <div class="city-box">
+            <p class="city-title">Киото</p>
+            <div class="city-fields">
+              <div>
+                <label class="field-label" for="jp_kyoto_days">Какие дни тура</label>
+                <input class="input" id="jp_kyoto_days" name="jp_kyoto_days" type="text" placeholder="напр. 5–6">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="jp_kyoto_nights">
+                    <button type="button" class="chip-btn" data-val="1">1</button>
+                    <button type="button" class="chip-btn" data-val="2">2</button>
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                  </div>
+                  <input class="input input-sm" name="jp_kyoto_nights" type="text" inputmode="numeric" placeholder="или своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="jp_kyoto_hotel">Отель APA и район</label>
+                <input class="input" id="jp_kyoto_hotel" name="jp_kyoto_hotel" type="text" placeholder="напр. APA Hotel Kyoto Ekimae">
+              </div>
+            </div>
+          </div>
+
+          <div class="city-box">
+            <p class="city-title">Нара</p>
+            <div class="city-fields">
+              <div class="city-hotel">
+                <label class="chip chip-inline"><input type="checkbox" name="jp_nara_daytrip" value="Выезд на день без ночёвки" checked><span>Выезд на день без ночёвки</span></label>
+              </div>
+              <div>
+                <label class="field-label" for="jp_nara_days">Какой день тура</label>
+                <input class="input" id="jp_nara_days" name="jp_nara_days" type="text" placeholder="напр. День 6">
+              </div>
+            </div>
+          </div>
+
+          <div class="city-box">
+            <p class="city-title">Осака</p>
+            <div class="city-fields">
+              <div class="city-hotel">
+                <label class="chip chip-inline"><input type="checkbox" name="jp_osaka_from_kyoto" value="Живём в Киото, в Осаку на день"><span>Живём в Киото, в Осаку на день</span></label>
+              </div>
+              <div>
+                <label class="field-label" for="jp_osaka_days">Какие дни тура</label>
+                <input class="input" id="jp_osaka_days" name="jp_osaka_days" type="text" placeholder="напр. 7–8">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="jp_osaka_nights">
+                    <button type="button" class="chip-btn" data-val="0">0</button>
+                    <button type="button" class="chip-btn" data-val="1">1</button>
+                    <button type="button" class="chip-btn" data-val="2">2</button>
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                  </div>
+                  <input class="input input-sm" name="jp_osaka_nights" type="text" inputmode="numeric" placeholder="или своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="jp_osaka_hotel">Отель APA и район</label>
+                <input class="input" id="jp_osaka_hotel" name="jp_osaka_hotel" type="text" placeholder="напр. APA Hotel Namba">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra-toggle">
+          <label class="chip"><input type="checkbox" name="jp_hotels_later" value="Точные названия отелей пришлю позже"><span>Точные названия отелей пришлю позже</span></label>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="q-card" data-q="4">
+        <div class="q-head">
+          <span class="q-num">4</span>
+          <h3>Что ещё в программе по Осаке (кроме замка Осаки)?</h3>
+        </div>
+        <p class="q-hint">Можно выбрать несколько пунктов.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Дотонбори"><span>Дотонбори</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Район Синсэкай"><span>Район Синсэкай</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Смотровая Umeda Sky"><span>Смотровая Umeda Sky</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Universal Studios Japan"><span>Universal Studios Japan</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Океанариум Кайюкан"><span>Океанариум Кайюкан</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Шопинг (Намба / Синсайбаси)"><span>Шопинг (Намба / Синсайбаси)</span></label>
+          <label class="chip"><input type="checkbox" name="jp_osaka_places" value="Свободное время"><span>Свободное время</span></label>
+        </div>
+        <div class="sub-input">
+          <input class="input" name="jp_osaka_other" type="text" placeholder="Другое (если есть ещё места в программе)">
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="q-card" data-q="5">
+        <div class="q-head">
+          <span class="q-num">5</span>
+          <h3>Что входит в стоимость (Япония)?</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Входные билеты в храмы и музеи</span>
+            <div class="chips" role="radiogroup" aria-label="Входные билеты в Японии">
+              <label class="chip"><input type="radio" name="jp_inc_tickets" value="Входят в тур"><span>Входят в тур</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_tickets" value="Отдельно"><span>Отдельно</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_tickets" value="Частично"><span>Частично</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Консульский / визовый сбор</span>
+            <div class="chips" role="radiogroup" aria-label="Консульский сбор в Японии">
+              <label class="chip"><input type="radio" name="jp_inc_visa" value="Входит в тур"><span>Входит в тур</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_visa" value="Отдельно"><span>Отдельно</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_visa" value="Для граждан РК — 0 ₸"><span>Для граждан РК — 0 ₸</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Багаж на перелёте</span>
+            <div class="chips" role="radiogroup" aria-label="Багаж в Японии">
+              <label class="chip"><input type="radio" name="jp_inc_baggage" value="20–23 кг + ручная кладь"><span>20–23 кг + ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_baggage" value="Только ручная кладь"><span>Только ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="jp_inc_baggage" value="По тарифу"><span>По тарифу</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q6 -->
+      <article class="q-card" data-q="6">
+        <div class="q-head">
+          <span class="q-num">6</span>
+          <h3>Темп программы и сколько ходим пешком в день</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Темп программы в Японии">
+          <label class="chip"><input type="radio" name="jp_pace" value="Спокойный (5–8 тыс. шагов)"><span>Спокойный (5–8 тыс. шагов)</span></label>
+          <label class="chip"><input type="radio" name="jp_pace" value="Умеренный (10–15 тыс. шагов)"><span>Умеренный (10–15 тыс. шагов)</span></label>
+          <label class="chip"><input type="radio" name="jp_pace" value="Насыщенный (15–20+ тыс. шагов)"><span>Насыщенный (15–20+ тыс. шагов)</span></label>
+          <label class="chip"><input type="radio" name="jp_pace" value="Другое"><span>Другое</span></label>
+        </div>
+        <div class="cond" data-cond-for="jp_pace" data-cond-val="Другое" hidden>
+          <input class="input" name="jp_pace_custom" type="text" placeholder="Опишите темп в двух словах">
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="q-card" data-q="7">
+        <div class="q-head">
+          <span class="q-num">7</span>
+          <h3>Язык гида и сопровождение (Япония)</h3>
+        </div>
+        <p class="q-hint">Можно отметить несколько вариантов.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="jp_guide" value="Русский"><span>Русский</span></label>
+          <label class="chip"><input type="checkbox" name="jp_guide" value="Казахский"><span>Казахский</span></label>
+          <label class="chip"><input type="checkbox" name="jp_guide" value="Английский"><span>Английский</span></label>
+          <label class="chip"><input type="checkbox" name="jp_guide" value="С группой летит сопровождающий из РК"><span>С группой летит сопровождающий из РК</span></label>
+        </div>
+      </article>
+
+      <!-- Q8 -->
+      <article class="q-card" data-q="8">
+        <div class="q-head">
+          <span class="q-num">8</span>
+          <h3>Виза в Японию: за сколько до вылета подавать?</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Срок подачи на визу в Японию">
+          <label class="chip"><input type="radio" name="jp_visa_deadline" value="За 2–3 недели"><span>За 2–3 недели</span></label>
+          <label class="chip"><input type="radio" name="jp_visa_deadline" value="За 1 месяц"><span>За 1 месяц</span></label>
+          <label class="chip"><input type="radio" name="jp_visa_deadline" value="За 1,5–2 месяца"><span>За 1,5–2 месяца</span></label>
+          <label class="chip"><input type="radio" name="jp_visa_deadline" value="Другое"><span>Другое</span></label>
+        </div>
+        <div class="cond" data-cond-for="jp_visa_deadline" data-cond-val="Другое" hidden>
+          <input class="input" name="jp_visa_deadline_custom" type="text" placeholder="Укажите срок">
+        </div>
+      </article>
+
+      <!-- Q9 -->
+      <article class="q-card" data-q="9">
+        <div class="q-head">
+          <span class="q-num">9</span>
+          <h3>Документы на визу в Японию</h3>
+        </div>
+        <p class="q-hint">Стандартный список уже отмечен — просто снимите галочки с лишнего или добавьте нужное.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Загранпаспорт (оригинал)" checked><span>Загранпаспорт (оригинал)</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Фото 4,5 × 4,5 см" checked><span>Фото 4,5 × 4,5 см</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Справка с работы / учёбы" checked><span>Справка с работы / учёбы</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Выписка из банка" checked><span>Выписка из банка</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Анкета (заполняем мы)" checked><span>Анкета (заполняем мы)</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Доверенность на подачу" checked><span>Доверенность на подачу</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Документы ИП / ТОО"><span>Документы ИП / ТОО</span></label>
+          <label class="chip"><input type="checkbox" name="jp_docs" value="Свидетельство о браке / рождении"><span>Свидетельство о браке / рождении</span></label>
+        </div>
+        <div class="sub-input">
+          <input class="input" name="jp_docs_custom" type="text" placeholder="Что-то добавить или убрать">
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 2: АВСТРАЛИЯ И НОВАЯ ЗЕЛАНДИЯ -->
+    <section class="q-section" id="sec-aunz" aria-labelledby="title-aunz">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 2 из 4</p>
+        <h2 id="title-aunz">Австралия и Новая Зеландия (19 янв – 2 фев 2027)</h2>
+      </div>
+
+      <!-- Q10 -->
+      <article class="q-card" data-q="10">
+        <div class="q-head">
+          <span class="q-num">10</span>
+          <h3>Город вылета</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Город вылета">
+          <label class="chip"><input type="radio" name="au_departure" value="Из Алматы"><span>Из Алматы</span></label>
+          <label class="chip"><input type="radio" name="au_departure" value="Из Астаны"><span>Из Астаны</span></label>
+          <label class="chip"><input type="radio" name="au_departure" value="Алматы или Астана"><span>Алматы или Астана</span></label>
+          <label class="chip"><input type="radio" name="au_departure" value="Другой"><span>Другой</span></label>
+        </div>
+        <div class="cond" data-cond-for="au_departure" data-cond-val="Другой" hidden>
+          <input class="input" name="au_departure_custom" type="text" placeholder="Укажите город вылета">
+        </div>
+      </article>
+
+      <!-- Q11 -->
+      <article class="q-card" data-q="11">
+        <div class="q-head">
+          <span class="q-num">11</span>
+          <h3>Размер группы и свободные места</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Максимум человек в группе</span>
+            <div class="chips" role="radiogroup" aria-label="Размер группы">
+              <label class="chip"><input type="radio" name="au_group" value="До 6"><span>До 6</span></label>
+              <label class="chip"><input type="radio" name="au_group" value="До 8"><span>До 8</span></label>
+              <label class="chip"><input type="radio" name="au_group" value="До 10"><span>До 10</span></label>
+              <label class="chip"><input type="radio" name="au_group" value="До 12"><span>До 12</span></label>
+              <label class="chip"><input type="radio" name="au_group" value="Другое"><span>Другое</span></label>
+            </div>
+            <div class="cond" data-cond-for="au_group" data-cond-val="Другое" hidden>
+              <input class="input" name="au_group_custom" type="text" placeholder="Укажите размер группы">
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Свободно мест сейчас</span>
+            <div class="inline-pair">
+              <input class="input input-md" name="au_spots" type="text" inputmode="numeric" placeholder="напр. 4">
+              <label class="chip"><input type="checkbox" name="au_spots_hide" value="Не показывать число"><span>Не показывать число</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q12 -->
+      <article class="q-card" data-q="12">
+        <div class="q-head">
+          <span class="q-num">12</span>
+          <h3>Стоимость тура</h3>
+        </div>
+        <div class="price-row">
+          <span class="price-prefix">От</span>
+          <input class="input input-md" name="au_price" type="text" inputmode="numeric" placeholder="например, 2 900 000">
+          <div class="chips" role="radiogroup" aria-label="Валюта">
+            <label class="chip"><input type="radio" name="au_currency" value="₸" checked><span>₸</span></label>
+            <label class="chip"><input type="radio" name="au_currency" value="$"><span>$</span></label>
+          </div>
+          <label class="chip"><input type="checkbox" name="au_price_tbd" value="Пока «по запросу»"><span>Пока «по запросу»</span></label>
+        </div>
+      </article>
+
+      <!-- Q13 -->
+      <article class="q-card" data-q="13">
+        <div class="q-head">
+          <span class="q-num">13</span>
+          <h3>Предоплата, остаток и условия возврата</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Условия оплаты">
+          <label class="chip"><input type="radio" name="au_payment" value="Как в Японии (предоплата 200 000 ₸, остаток после визы, при отказе возврат 50%)"><span>Как в Японии (предоплата 200 000 ₸, остаток после визы, при отказе возврат 50%)</span></label>
+          <label class="chip"><input type="radio" name="au_payment" value="Другие условия"><span>Другие условия</span></label>
+        </div>
+        <div class="cond" data-cond-for="au_payment" data-cond-val="Другие условия" hidden>
+          <div class="three-inputs">
+            <div>
+              <label class="field-label" for="au_pay_pre">Предоплата</label>
+              <input class="input" id="au_pay_pre" name="au_pay_pre" type="text" placeholder="напр. 30% или 500 000 ₸">
+            </div>
+            <div>
+              <label class="field-label" for="au_pay_rest">Когда остаток</label>
+              <input class="input" id="au_pay_rest" name="au_pay_rest" type="text" placeholder="напр. за 30 дней до вылета">
+            </div>
+            <div>
+              <label class="field-label" for="au_pay_refund">Возврат при отказе в визе</label>
+              <input class="input" id="au_pay_refund" name="au_pay_refund" type="text" placeholder="напр. возврат 50% / за вычетом сборов">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q14 -->
+      <article class="q-card" data-q="14">
+        <div class="q-head">
+          <span class="q-num">14</span>
+          <h3>Порядок городов в маршруте</h3>
+        </div>
+        <p class="q-hint">Финалы Australian Open в Мельбурне — 30 и 31 января, вылет домой — 2 февраля.</p>
+        <div class="chips" role="radiogroup" aria-label="Порядок городов">
+          <label class="chip"><input type="radio" name="au_route" value="Сидней → Веллингтон → Мельбурн (финалы в конце)"><span>Сидней → Веллингтон → Мельбурн (финалы в конце)</span></label>
+          <label class="chip"><input type="radio" name="au_route" value="Сидней → Мельбурн → Веллингтон (как в PDF)"><span>Сидней → Мельбурн → Веллингтон (как в PDF)</span></label>
+          <label class="chip"><input type="radio" name="au_route" value="Веллингтон → Сидней → Мельбурн"><span>Веллингтон → Сидней → Мельбурн</span></label>
+          <label class="chip"><input type="radio" name="au_route" value="Другой порядок"><span>Другой порядок</span></label>
+        </div>
+        <div class="cond" data-cond-for="au_route" data-cond-val="Другой порядок" hidden>
+          <input class="input" name="au_route_custom" type="text" placeholder="Укажите порядок городов">
+        </div>
+      </article>
+
+      <!-- Q15 -->
+      <article class="q-card" data-q="15">
+        <div class="q-head">
+          <span class="q-num">15</span>
+          <h3>Дни, ночи и отели (Сидней, Мельбурн, Веллингтон)</h3>
+        </div>
+        <div class="city-grid three-cols">
+          <div class="city-box">
+            <p class="city-title">Сидней</p>
+            <div class="city-fields">
+              <div>
+                <label class="field-label" for="au_syd_days">Какие дни тура</label>
+                <input class="input" id="au_syd_days" name="au_syd_days" type="text" placeholder="напр. 1–5">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="au_syd_nights">
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                    <button type="button" class="chip-btn" data-val="4">4</button>
+                    <button type="button" class="chip-btn" data-val="5">5</button>
+                  </div>
+                  <input class="input input-sm" name="au_syd_nights" type="text" inputmode="numeric" placeholder="своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="au_syd_hotel">Отель и район</label>
+                <input class="input" id="au_syd_hotel" name="au_syd_hotel" type="text" placeholder="Название и район">
+              </div>
+            </div>
+          </div>
+
+          <div class="city-box">
+            <p class="city-title">Мельбурн</p>
+            <div class="city-fields">
+              <div>
+                <label class="field-label" for="au_mel_days">Какие дни тура</label>
+                <input class="input" id="au_mel_days" name="au_mel_days" type="text" placeholder="напр. 6–10">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="au_mel_nights">
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                    <button type="button" class="chip-btn" data-val="4">4</button>
+                    <button type="button" class="chip-btn" data-val="5">5</button>
+                  </div>
+                  <input class="input input-sm" name="au_mel_nights" type="text" inputmode="numeric" placeholder="своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="au_mel_hotel">Отель и район</label>
+                <input class="input" id="au_mel_hotel" name="au_mel_hotel" type="text" placeholder="Название и район">
+              </div>
+            </div>
+          </div>
+
+          <div class="city-box">
+            <p class="city-title">Веллингтон</p>
+            <div class="city-fields">
+              <div>
+                <label class="field-label" for="au_wlg_days">Какие дни тура</label>
+                <input class="input" id="au_wlg_days" name="au_wlg_days" type="text" placeholder="напр. 11–13">
+              </div>
+              <div>
+                <span class="field-label">Ночей</span>
+                <div class="mini-row">
+                  <div class="chips mini-chips" data-fill-target="au_wlg_nights">
+                    <button type="button" class="chip-btn" data-val="2">2</button>
+                    <button type="button" class="chip-btn" data-val="3">3</button>
+                    <button type="button" class="chip-btn" data-val="4">4</button>
+                  </div>
+                  <input class="input input-sm" name="au_wlg_nights" type="text" inputmode="numeric" placeholder="своё">
+                </div>
+              </div>
+              <div class="city-hotel">
+                <label class="field-label" for="au_wlg_hotel">Отель и район</label>
+                <input class="input" id="au_wlg_hotel" name="au_wlg_hotel" type="text" placeholder="Название и район">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra-toggle">
+          <label class="chip"><input type="checkbox" name="au_hotels_later" value="Названия отелей пришлю позже"><span>Названия отелей пришлю позже</span></label>
+        </div>
+      </article>
+
+      <!-- Q16 -->
+      <article class="q-card" data-q="16">
+        <div class="q-head">
+          <span class="q-num">16</span>
+          <h3>Билеты на финалы Australian Open (Rod Laver Arena)</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Входят в стоимость тура?</span>
+            <div class="chips" role="radiogroup" aria-label="Входят ли билеты на Australian Open">
+              <label class="chip"><input type="radio" name="au_ao_inc" value="Да, оба финала (30 и 31 янв)"><span>Да, оба финала (30 и 31 янв)</span></label>
+              <label class="chip"><input type="radio" name="au_ao_inc" value="Да, один финал"><span>Да, один финал</span></label>
+              <label class="chip"><input type="radio" name="au_ao_inc" value="Нет, оплачиваются отдельно"><span>Нет, оплачиваются отдельно</span></label>
+              <label class="chip"><input type="radio" name="au_ao_inc" value="Опционально за доплату"><span>Опционально за доплату</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Категория мест</span>
+            <div class="chips" role="radiogroup" aria-label="Категория мест на Australian Open">
+              <label class="chip"><input type="radio" name="au_ao_tier" value="Нижний ярус"><span>Нижний ярус</span></label>
+              <label class="chip"><input type="radio" name="au_ao_tier" value="Верхний ярус"><span>Верхний ярус</span></label>
+              <label class="chip"><input type="radio" name="au_ao_tier" value="Ground Pass"><span>Ground Pass</span></label>
+              <label class="chip"><input type="radio" name="au_ao_tier" value="Уточним позже"><span>Уточним позже</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q17 -->
+      <article class="q-card" data-q="17">
+        <div class="q-head">
+          <span class="q-num">17</span>
+          <h3>Что входит / отдельно (Австралия и Новая Зеландия)</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Завтраки в отелях</span>
+            <div class="chips" role="radiogroup" aria-label="Завтраки">
+              <label class="chip"><input type="radio" name="au_inc_breakfast" value="Входят"><span>Входят</span></label>
+              <label class="chip"><input type="radio" name="au_inc_breakfast" value="Отдельно"><span>Отдельно</span></label>
+              <label class="chip"><input type="radio" name="au_inc_breakfast" value="Частично"><span>Частично</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Трансферы аэропорт — отель</span>
+            <div class="chips" role="radiogroup" aria-label="Трансферы">
+              <label class="chip"><input type="radio" name="au_inc_transfers" value="Входят"><span>Входят</span></label>
+              <label class="chip"><input type="radio" name="au_inc_transfers" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Визовые сборы (Австралия + НЗ)</span>
+            <div class="chips" role="radiogroup" aria-label="Визовые сборы">
+              <label class="chip"><input type="radio" name="au_inc_visa" value="Входят в тур"><span>Входят в тур</span></label>
+              <label class="chip"><input type="radio" name="au_inc_visa" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Гид и сопровождение (можно несколько)</span>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="au_guide" value="Гид на русском"><span>Гид на русском</span></label>
+              <label class="chip"><input type="checkbox" name="au_guide" value="Гид на английском"><span>Гид на английском</span></label>
+              <label class="chip"><input type="checkbox" name="au_guide" value="С группой летит представитель Noor Travel из РК"><span>С группой летит представитель Noor Travel из РК</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q18 -->
+      <article class="q-card" data-q="18">
+        <div class="q-head">
+          <span class="q-num">18</span>
+          <h3>Перелёт (длительность и пересадки)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Длительность перелёта">
+          <label class="chip"><input type="radio" name="au_flight" value="1 пересадка (~18–22 ч)"><span>1 пересадка (~18–22 ч)</span></label>
+          <label class="chip"><input type="radio" name="au_flight" value="2 пересадки (~22–28 ч)"><span>2 пересадки (~22–28 ч)</span></label>
+          <label class="chip"><input type="radio" name="au_flight" value="Уточним при выкупе билетов"><span>Уточним при выкупе билетов</span></label>
+          <label class="chip"><input type="radio" name="au_flight" value="Другое"><span>Другое</span></label>
+        </div>
+        <div class="cond" data-cond-for="au_flight" data-cond-val="Другое" hidden>
+          <input class="input" name="au_flight_custom" type="text" placeholder="Например: через Дубай или Сеул, ~20 ч">
+        </div>
+      </article>
+
+      <!-- Q19 -->
+      <article class="q-card" data-q="19">
+        <div class="q-head">
+          <span class="q-num">19</span>
+          <h3>Темп программы (Австралия и Новая Зеландия)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Темп программы в Австралии и НЗ">
+          <label class="chip"><input type="radio" name="au_pace" value="Такой же, как в Японии"><span>Такой же, как в Японии</span></label>
+          <label class="chip"><input type="radio" name="au_pace" value="Спокойный (5–8 тыс. шагов)"><span>Спокойный (5–8 тыс. шагов)</span></label>
+          <label class="chip"><input type="radio" name="au_pace" value="Умеренный (10–15 тыс. шагов)"><span>Умеренный (10–15 тыс. шагов)</span></label>
+          <label class="chip"><input type="radio" name="au_pace" value="Насыщенный (15–20+ тыс. шагов)"><span>Насыщенный (15–20+ тыс. шагов)</span></label>
+        </div>
+      </article>
+
+      <!-- Q20 -->
+      <article class="q-card" data-q="20">
+        <div class="q-head">
+          <span class="q-num">20</span>
+          <h3>Визы Австралии и Новой Зеландии</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Как помогаем с визами</span>
+            <div class="chips" role="radiogroup" aria-label="Помощь с визами в Австралию и НЗ">
+              <label class="chip"><input type="radio" name="au_visa_help" value="Подаём онлайн полностью за туриста"><span>Подаём онлайн полностью за туриста</span></label>
+              <label class="chip"><input type="radio" name="au_visa_help" value="Готовим пакет + турист сдаёт биометрию лично"><span>Готовим пакет + турист сдаёт биометрию лично</span></label>
+              <label class="chip"><input type="radio" name="au_visa_help" value="Консультируем и проверяем документы"><span>Консультируем и проверяем документы</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">За сколько до вылета подавать</span>
+            <div class="chips" role="radiogroup" aria-label="Срок подачи на визы Австралии и НЗ">
+              <label class="chip"><input type="radio" name="au_visa_deadline" value="За 1,5–2 месяца"><span>За 1,5–2 месяца</span></label>
+              <label class="chip"><input type="radio" name="au_visa_deadline" value="За 2–3 месяца"><span>За 2–3 месяца</span></label>
+              <label class="chip"><input type="radio" name="au_visa_deadline" value="За 3+ месяца"><span>За 3+ месяца</span></label>
+              <label class="chip"><input type="radio" name="au_visa_deadline" value="Как можно раньше"><span>Как можно раньше</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Документы (снимите лишнее или добавьте)</span>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="au_docs" value="Скан загранпаспорта" checked><span>Скан загранпаспорта</span></label>
+              <label class="chip"><input type="checkbox" name="au_docs" value="Справка с работы / ИП / ТОО" checked><span>Справка с работы / ИП / ТОО</span></label>
+              <label class="chip"><input type="checkbox" name="au_docs" value="Выписка из банка за 3–6 мес." checked><span>Выписка из банка за 3–6 мес.</span></label>
+              <label class="chip"><input type="checkbox" name="au_docs" value="Электронное фото" checked><span>Электронное фото</span></label>
+              <label class="chip"><input type="checkbox" name="au_docs" value="Справки о недвижимости / семье"><span>Справки о недвижимости / семье</span></label>
+            </div>
+            <div class="sub-input">
+              <input class="input" name="au_docs_custom" type="text" placeholder="Добавить или убрать документы">
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 3: ОТЗЫВЫ -->
+    <section class="q-section" id="sec-reviews" aria-labelledby="title-reviews">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 3 из 4</p>
+        <h2 id="title-reviews">Отзывы туристов</h2>
+      </div>
+
+      <!-- Q21 -->
+      <article class="q-card" data-q="21">
+        <div class="q-head">
+          <span class="q-num">21</span>
+          <h3>Два отзыва для главной и страницы Японии (с разрешением на публикацию)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Способ передачи отзывов">
+          <label class="chip"><input type="radio" name="reviews_mode" value="Перешлю скрины/тексты в WhatsApp отдельно"><span>Перешлю скрины/тексты в WhatsApp отдельно</span></label>
+          <label class="chip"><input type="radio" name="reviews_mode" value="Напишу прямо здесь"><span>Напишу прямо здесь</span></label>
+        </div>
+        <div class="cond" data-cond-for="reviews_mode" data-cond-val="Напишу прямо здесь" hidden>
+          <div class="reviews-inputs">
+            <div class="review-box">
+              <p class="city-title">Отзыв 1 (тур в Японию)</p>
+              <input class="input" name="rev1_name" type="text" placeholder="Имя туриста">
+              <textarea class="input textarea" name="rev1_text" rows="3" placeholder="Короткий текст отзыва"></textarea>
+            </div>
+            <div class="review-box">
+              <p class="city-title">Отзыв 2 (другой тур)</p>
+              <div class="two-inputs">
+                <input class="input" name="rev2_name" type="text" placeholder="Имя туриста">
+                <input class="input" name="rev2_tour" type="text" placeholder="Какой тур">
+              </div>
+              <textarea class="input textarea" name="rev2_text" rows="3" placeholder="Короткий текст отзыва"></textarea>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 4: ОБЩИЕ ДЕТАЛИ -->
+    <section class="q-section" id="sec-general" aria-labelledby="title-general">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 4 из 4</p>
+        <h2 id="title-general">Общие детали сайта</h2>
+      </div>
+
+      <!-- Q22 -->
+      <article class="q-card" data-q="22">
+        <div class="q-head">
+          <span class="q-num">22</span>
+          <h3>Блок «Скоро» — какие направления оставить?</h3>
+        </div>
+        <p class="q-hint">Снимите галочку с неактуальных или добавьте новые ниже.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="soon_list" value="BTS-тур в Куала-Лумпур" checked><span>BTS-тур в Куала-Лумпур</span></label>
+          <label class="chip"><input type="checkbox" name="soon_list" value="BTS-тур в Гонконг" checked><span>BTS-тур в Гонконг</span></label>
+          <label class="chip"><input type="checkbox" name="soon_list" value="Рождественский Евротур" checked><span>Рождественский Евротур</span></label>
+          <label class="chip"><input type="checkbox" name="soon_list" value="Великобритания" checked><span>Великобритания</span></label>
+          <label class="chip"><input type="checkbox" name="soon_list" value="Исландия" checked><span>Исландия</span></label>
+        </div>
+        <div class="sub-input">
+          <input class="input" name="soon_custom" type="text" placeholder="Добавить направление или примерные даты">
+        </div>
+      </article>
+
+      <!-- Q23 -->
+      <article class="q-card" data-q="23">
+        <div class="q-head">
+          <span class="q-num">23</span>
+          <h3>Казахская версия сайта («KZ» в шапке)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Казахская версия">
+          <label class="chip"><input type="radio" name="kz_lang" value="Оставить «KZ скоро»"><span>Оставить «KZ скоро»</span></label>
+          <label class="chip"><input type="radio" name="kz_lang" value="Скрыть KZ пока"><span>Скрыть KZ пока</span></label>
+          <label class="chip"><input type="radio" name="kz_lang" value="Нужна к запуску (пришлём перевод)"><span>Нужна к запуску (пришлём перевод)</span></label>
+        </div>
+      </article>
+
+      <!-- Q24 -->
+      <article class="q-card" data-q="24">
+        <div class="q-head">
+          <span class="q-num">24</span>
+          <h3>Быстрая проверка текущих данных на сайте</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Контакты и офис: <strong>+7 707 339 84 32 · @noortravel.kz · Астана, ул. Шыганак, 1 · 10:00–21:00</strong></span>
+            <div class="chips" role="radiogroup" aria-label="Проверка контактов">
+              <label class="chip"><input type="radio" name="chk_contacts" value="Всё верно"><span>Всё верно</span></label>
+              <label class="chip"><input type="radio" name="chk_contacts" value="Нужно поправить"><span>Нужно поправить</span></label>
+            </div>
+            <div class="cond" data-cond-for="chk_contacts" data-cond-val="Нужно поправить" hidden>
+              <input class="input" name="chk_contacts_fix" type="text" placeholder="Что именно исправить (этаж, часы, Telegram/email)?">
+            </div>
+          </div>
+
+          <div class="sub-row">
+            <span class="sub-label">Реквизиты: <strong>ИП «Noortravel.kz», ИИН 040824500098, Уведомление № KZ59UWG00019435 от 10.07.2026</strong></span>
+            <div class="chips" role="radiogroup" aria-label="Проверка реквизитов">
+              <label class="chip"><input type="radio" name="chk_legal" value="Всё верно"><span>Всё верно</span></label>
+              <label class="chip"><input type="radio" name="chk_legal" value="Нужно поправить"><span>Нужно поправить</span></label>
+            </div>
+            <div class="cond" data-cond-for="chk_legal" data-cond-val="Нужно поправить" hidden>
+              <input class="input" name="chk_legal_fix" type="text" placeholder="Напишите правки по реквизитам">
+            </div>
+          </div>
+
+          <div class="sub-row">
+            <span class="sub-label">Домен <strong>noortravel.kz</strong></span>
+            <div class="chips" role="radiogroup" aria-label="Домен noortravel.kz">
+              <label class="chip"><input type="radio" name="chk_domain" value="Уже куплен, доступ есть"><span>Уже куплен, доступ есть</span></label>
+              <label class="chip"><input type="radio" name="chk_domain" value="Ещё не куплен"><span>Ещё не куплен</span></label>
+              <label class="chip"><input type="radio" name="chk_domain" value="Пока на временной ссылке"><span>Пока на временной ссылке</span></label>
+            </div>
+          </div>
+
+          <div class="sub-row">
+            <span class="sub-label">Текущие фото туристов из Японии на сайте</span>
+            <div class="chips" role="radiogroup" aria-label="Согласие на фото">
+              <label class="chip"><input type="radio" name="chk_photos" value="Можно публиковать"><span>Можно публиковать</span></label>
+              <label class="chip"><input type="radio" name="chk_photos" value="Нужно заменить часть фото"><span>Нужно заменить часть фото</span></label>
+            </div>
+            <div class="cond" data-cond-for="chk_photos" data-cond-val="Нужно заменить часть фото" hidden>
+              <input class="input" name="chk_photos_fix" type="text" placeholder="Какие фото убрать или заменить?">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q25 -->
+      <article class="q-card" data-q="25">
+        <div class="q-head">
+          <span class="q-num">25</span>
+          <h3>Дополнительные пожелания или комментарии</h3>
+        </div>
+        <textarea class="input textarea" name="notes" rows="3" placeholder="Любые заметки по текстам, турам, оферте или срокам запуска"></textarea>
+      </article>
+    </section>
+
+    <!-- ОТПРАВКА ОТВЕТОВ -->
+    <section class="send-card on-navy" id="sec-send" aria-labelledby="title-send">
+      <div class="send-head">
+        <p class="eyebrow">Последний шаг</p>
+        <h2 id="title-send">Готово — отправьте ответы любым удобным способом</h2>
+        <p class="lead">Ничего не потеряется: можно нажать одну кнопку и отправить в мессенджер, либо скопировать ссылку с вашими ответами.</p>
+      </div>
+
+      <div class="send-actions">
+        <button type="button" class="btn btn-primary" id="btnWa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Отправить в WhatsApp
+        </button>
+        <button type="button" class="btn btn-ghost" id="btnTg">Отправить в Telegram</button>
+        <button type="button" class="btn btn-ghost" id="btnCopyText">Скопировать все ответы</button>
+        <button type="button" class="btn btn-ghost" id="btnCopyLink">Скопировать ссылку с ответами</button>
+        <button type="button" class="btn btn-ghost" id="btnDownload">Скачать файл (.txt)</button>
+      </div>
+
+      <p class="send-feedback" id="sendFeedback" aria-live="polite"></p>
+
+      <details class="preview-details">
+        <summary>Посмотреть текст ответов перед отправкой</summary>
+        <pre class="summary-preview" id="summaryPreview"></pre>
+      </details>
+    </section>
+
+  </form>
+
+  <footer class="anketa-footer">
+    <span>Noor Travel · анкета для согласования контента</span>
+    <button type="button" class="reset-btn" id="btnReset">Очистить ответы</button>
+  </footer>
+</main>
+
+<script src="assets/anketa.js"></script>
+</body>
+</html>

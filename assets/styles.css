@@ -327,6 +327,8 @@ a.g-label:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 .on-navy .avatar { background: #263049; color: var(--gold-light); }
+.avatar:has(img) { padding: 0; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+.on-navy .avatar:has(img) { box-shadow: 0 0 0 2px rgba(214, 180, 122, .45); }
 
 /* Final call to action */
 .cta-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px 72px; align-items: center; }
