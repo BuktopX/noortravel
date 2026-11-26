@@ -48,15 +48,6 @@
 .anketa-hero { display: grid; gap: 14px; }
 .anketa-hero h1 { font-size: clamp(32px, 5vw, 48px); }
 
-.readback-banner {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 18px 22px; border-radius: var(--radius);
-  background: #EFE4CA; border: 1.5px solid var(--gold);
-}
-.readback-banner p { font-size: 15px; color: var(--muted); margin-top: 4px; }
-.readback-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.btn-sm { min-height: 40px; padding: 0 16px; font-size: 15px; }
-
 #anketaForm { display: grid; gap: 44px; }
 .q-section { display: grid; gap: 16px; scroll-margin-top: 132px; }
 .q-section-head { display: grid; gap: 6px; margin-bottom: 4px; }
@@ -158,18 +149,24 @@
   border-radius: var(--radius-photo); padding: 36px;
   display: grid; gap: 22px; scroll-margin-top: 132px;
 }
+#sendReady { display: grid; gap: 22px; }
+#sendReady[hidden] { display: none; }
 .send-head { display: grid; gap: 10px; max-width: 640px; }
 .send-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-submit { min-width: 240px; }
+.btn-submit:disabled { opacity: .65; cursor: wait; }
 .send-feedback { min-height: 24px; font-size: 16px; font-weight: 500; color: var(--gold-light); }
+.send-feedback:empty { display: none; }
+.send-feedback.is-error { color: #FFB4A2; }
 
-.preview-details { border-top: 1px solid rgba(243, 238, 228, .18); padding-top: 16px; }
-.preview-details summary { cursor: pointer; font-weight: 600; color: var(--on-navy); }
-.summary-preview {
-  margin: 14px 0 0; padding: 16px; border-radius: 12px;
-  background: var(--navy-deep); color: var(--on-navy);
-  font: 400 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  white-space: pre-wrap; word-break: break-word; max-height: 380px; overflow: auto;
+.send-success { display: grid; gap: 20px; justify-items: start; }
+.send-success[hidden] { display: none; }
+.send-success-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(214, 180, 122, .16); border: 1.5px solid var(--gold-light);
+  color: var(--gold-light); display: grid; place-items: center;
 }
+.send-success-icon svg { width: 26px; height: 26px; }
 
 .anketa-footer {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;

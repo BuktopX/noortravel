@@ -43,18 +43,6 @@
 </header>
 
 <main class="wrap anketa-main" id="main">
-  <div class="readback-banner" id="readbackBanner" hidden>
-    <div>
-      <strong>Открыты заполненные ответы</strong>
-      <p>Вы видите сохранённый вариант по ссылке. Можно сразу скопировать текст или подправить ответы.</p>
-    </div>
-    <div class="readback-actions">
-      <button type="button" class="btn btn-primary btn-sm" id="btnBannerCopyText">Скопировать текст</button>
-      <button type="button" class="btn btn-ghost btn-sm" id="btnBannerCopyJson">Скопировать JSON</button>
-      <button type="button" class="btn btn-ghost btn-sm" id="btnBannerEdit">Редактировать</button>
-    </div>
-  </div>
-
   <section class="anketa-hero">
     <p class="eyebrow">Бриф для запуска сайта</p>
     <h1>Короткая анкета по деталям туров</h1>
@@ -62,6 +50,7 @@
   </section>
 
   <form id="anketaForm" novalidate>
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
     <!-- РАЗДЕЛ 1: ЯПОНИЯ -->
     <section class="q-section" id="sec-japan" aria-labelledby="title-japan">
@@ -821,29 +810,30 @@
 
     <!-- ОТПРАВКА ОТВЕТОВ -->
     <section class="send-card on-navy" id="sec-send" aria-labelledby="title-send">
-      <div class="send-head">
-        <p class="eyebrow">Последний шаг</p>
-        <h2 id="title-send">Готово — отправьте ответы любым удобным способом</h2>
-        <p class="lead">Ничего не потеряется: можно нажать одну кнопку и отправить в мессенджер, либо скопировать ссылку с вашими ответами.</p>
+      <div id="sendReady">
+        <div class="send-head">
+          <p class="eyebrow">Последний шаг</p>
+          <h2 id="title-send">Сохранить и отправить ответы</h2>
+          <p class="lead">Нажмите кнопку ниже — ваши ответы сразу сохранятся и отправятся нам. Если позже захотите что-то дополнить, анкету можно отправить повторно.</p>
+        </div>
+        <div class="send-actions">
+          <button type="submit" class="btn btn-primary btn-submit" id="btnSubmit">Отправить ответы</button>
+        </div>
+        <p class="send-feedback" id="sendFeedback" aria-live="polite"></p>
       </div>
 
-      <div class="send-actions">
-        <button type="button" class="btn btn-primary" id="btnWa">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          Отправить в WhatsApp
-        </button>
-        <button type="button" class="btn btn-ghost" id="btnTg">Отправить в Telegram</button>
-        <button type="button" class="btn btn-ghost" id="btnCopyText">Скопировать все ответы</button>
-        <button type="button" class="btn btn-ghost" id="btnCopyLink">Скопировать ссылку с ответами</button>
-        <button type="button" class="btn btn-ghost" id="btnDownload">Скачать файл (.txt)</button>
+      <div class="send-success" id="sendSuccess" hidden>
+        <div class="send-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <div class="send-head">
+          <h2>Спасибо! Ответы сохранены</h2>
+          <p class="lead">Мы уже получили ваши ответы — ничего дополнительно пересылать не нужно.</p>
+        </div>
+        <div class="send-actions">
+          <button type="button" class="btn btn-ghost" id="btnEditAgain">Изменить и отправить повторно</button>
+        </div>
       </div>
-
-      <p class="send-feedback" id="sendFeedback" aria-live="polite"></p>
-
-      <details class="preview-details">
-        <summary>Посмотреть текст ответов перед отправкой</summary>
-        <pre class="summary-preview" id="summaryPreview"></pre>
-      </details>
     </section>
 
   </form>

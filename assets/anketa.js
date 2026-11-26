@@ -2,32 +2,20 @@
   const form = document.getElementById('anketaForm');
   if (!form) return;
 
+  const WEB3FORMS_KEY = '52f56e18-a755-4c09-9d03-ac11cfaa201c';
+  const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
   const STORAGE_KEY = 'noorBriefV1';
   const TOTAL_Q = 25;
 
   const progressCount = document.getElementById('progressCount');
   const progressFill = document.getElementById('progressFill');
   const saveStatus = document.getElementById('saveStatus');
-  const summaryPreview = document.getElementById('summaryPreview');
+  const sendReady = document.getElementById('sendReady');
+  const sendSuccess = document.getElementById('sendSuccess');
+  const btnSubmit = document.getElementById('btnSubmit');
+  const btnEditAgain = document.getElementById('btnEditAgain');
   const sendFeedback = document.getElementById('sendFeedback');
-  const readbackBanner = document.getElementById('readbackBanner');
-
-  const params = new URLSearchParams(location.search);
-  const waTarget = (params.get('to') || '').replace(/\D/g, '');
-
-  function encodePayload(obj) {
-    const bytes = new TextEncoder().encode(JSON.stringify(obj));
-    let bin = '';
-    bytes.forEach((b) => { bin += String.fromCharCode(b); });
-    return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-  }
-
-  function decodePayload(str) {
-    const pad = str.length % 4 ? '='.repeat(4 - (str.length % 4)) : '';
-    const bin = atob(str.replace(/-/g, '+').replace(/_/g, '/') + pad);
-    const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
-    return JSON.parse(new TextDecoder().decode(bytes));
-  }
+  const sendSection = document.getElementById('sec-send');
 
   function val(name) {
     const els = form.querySelectorAll(`[name="${CSS.escape(name)}"]`);
@@ -45,7 +33,7 @@
 
   function collectState() {
     const data = {};
-    const names = new Set([...form.elements].map((el) => el.name).filter(Boolean));
+    const names = new Set([...form.elements].map((el) => el.name).filter((n) => n && n !== 'botcheck'));
     names.forEach((name) => {
       const v = val(name);
       if (Array.isArray(v)) {
@@ -59,7 +47,7 @@
 
   function applyState(data) {
     if (!data || typeof data !== 'object') return;
-    const names = new Set([...form.elements].map((el) => el.name).filter(Boolean));
+    const names = new Set([...form.elements].map((el) => el.name).filter((n) => n && n !== 'botcheck'));
     names.forEach((name) => {
       const els = [...form.querySelectorAll(`[name="${CSS.escape(name)}"]`)];
       if (!els.length) return;
@@ -114,18 +102,22 @@
       const later = val('au_hotels_later').length > 0;
       return hasInput || later;
     }
-    const radios = [...card.querySelectorAll('input[type="radio"]')];
     if (q === '12') {
       return val('au_price') !== '' || val('au_price_tbd').length > 0;
     }
+    const radios = [...card.querySelectorAll('input[type="radio"]')];
     const checks = [...card.querySelectorAll('input[type="checkbox"]')];
     const texts = [...card.querySelectorAll('input[type="text"], textarea')].filter((el) => !el.closest('[hidden]'));
     return radios.some((r) => r.checked) || checks.some((c) => c.checked) || texts.some((t) => t.value.trim() !== '');
   }
 
-  function updateProgress() {
+  function countDone() {
     const cards = [...form.querySelectorAll('.q-card[data-q]')];
-    const done = cards.filter(isQuestionAnswered).length;
+    return cards.filter(isQuestionAnswered).length;
+  }
+
+  function updateProgress() {
+    const done = countDone();
     progressCount.textContent = `Готово: ${done} / ${TOTAL_Q}`;
     progressFill.style.width = `${Math.round((done / TOTAL_Q) * 100)}%`;
   }
@@ -142,13 +134,7 @@
     return parts.length ? `  - ${label}: ${parts.join(' · ')}` : '';
   }
 
-  function buildSummary() {
-    const lines = ['Noor Travel — ответы по анкете', ''];
-    const add = (title, value) => {
-      if (!value || (Array.isArray(value) && !value.length)) return;
-      lines.push(`${title}: ${Array.isArray(value) ? value.join(', ') : value}`);
-    };
-
+  function buildSections() {
     // 1. Япония
     const jp = [];
     const pushJp = (label, value) => { if (value) jp.push(`${label}: ${value}`); };
@@ -188,10 +174,6 @@
 
     const jpDocs = [...val('jp_docs'), val('jp_docs_custom') ? `примечание: ${val('jp_docs_custom')}` : ''].filter(Boolean);
     if (jpDocs.length) pushJp('9. Документы на визу', jpDocs.join(', '));
-
-    if (jp.length) {
-      lines.push('=== 1. ЯПОНИЯ ===', ...jp, '');
-    }
 
     // 2. Австралия и Новая Зеландия
     const au = [];
@@ -258,32 +240,28 @@
     ].filter(Boolean);
     if (auVisa.length) pushAu('20. Визы Австралии и НЗ', auVisa.join('; '));
 
-    if (au.length) {
-      lines.push('=== 2. АВСТРАЛИЯ И НЗ ===', ...au, '');
-    }
-
     // 3. Отзывы
+    const reviews = [];
     const revMode = val('reviews_mode');
     if (revMode) {
-      lines.push('=== 3. ОТЗЫВЫ ===');
       if (revMode === 'Напишу прямо здесь') {
         if (val('rev1_name') || val('rev1_text')) {
-          lines.push(`Отзыв 1 (Япония) — ${val('rev1_name') || 'Без имени'}: ${val('rev1_text')}`);
+          reviews.push(`Отзыв 1 (Япония) — ${val('rev1_name') || 'Без имени'}: ${val('rev1_text')}`);
         }
         if (val('rev2_name') || val('rev2_tour') || val('rev2_text')) {
-          lines.push(`Отзыв 2 (${val('rev2_tour') || 'тур не указан'}) — ${val('rev2_name') || 'Без имени'}: ${val('rev2_text')}`);
+          reviews.push(`Отзыв 2 (${val('rev2_tour') || 'тур не указан'}) — ${val('rev2_name') || 'Без имени'}: ${val('rev2_text')}`);
         }
+        if (!reviews.length) reviews.push('21. Отзывы: выбран ввод в анкете (текст не заполнен)');
       } else {
-        lines.push(`21. Отзывы: ${revMode}`);
+        reviews.push(`21. Отзывы: ${revMode}`);
       }
-      lines.push('');
     }
 
     // 4. Общее
-    const gen = [];
+    const general = [];
     const soon = [...val('soon_list'), val('soon_custom') ? `доп: ${val('soon_custom')}` : ''].filter(Boolean);
-    if (soon.length) gen.push(`22. Раздел «Скоро»: ${soon.join(', ')}`);
-    if (val('kz_lang')) gen.push(`23. Казахская версия (KZ): ${val('kz_lang')}`);
+    if (soon.length) general.push(`22. Раздел «Скоро»: ${soon.join(', ')}`);
+    if (val('kz_lang')) general.push(`23. Казахская версия (KZ): ${val('kz_lang')}`);
 
     const checks = [
       val('chk_contacts') ? `контакты: ${val('chk_contacts')}${val('chk_contacts_fix') ? ` (${val('chk_contacts_fix')})` : ''}` : '',
@@ -291,48 +269,22 @@
       val('chk_domain') ? `домен noortravel.kz: ${val('chk_domain')}` : '',
       val('chk_photos') ? `фото из Японии: ${val('chk_photos')}${val('chk_photos_fix') ? ` (${val('chk_photos_fix')})` : ''}` : ''
     ].filter(Boolean);
-    if (checks.length) gen.push(`24. Проверка сайта: ${checks.join('; ')}`);
-    if (val('notes')) gen.push(`25. Комментарии: ${val('notes')}`);
+    if (checks.length) general.push(`24. Проверка сайта: ${checks.join('; ')}`);
+    if (val('notes')) general.push(`25. Комментарии: ${val('notes')}`);
 
-    if (gen.length) {
-      lines.push('=== 4. ОБЩЕЕ ===', ...gen);
-    }
-
-    return lines.join('\n').trim();
-  }
-
-  function buildAnswerLink() {
-    const base = location.href.split('#')[0];
-    return `${base}#r=${encodePayload(collectState())}`;
-  }
-
-  let feedbackTimer = null;
-  function flashFeedback(msg) {
-    sendFeedback.textContent = msg;
-    clearTimeout(feedbackTimer);
-    feedbackTimer = setTimeout(() => { sendFeedback.textContent = ''; }, 5000);
-  }
-
-  async function copyText(str) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      await navigator.clipboard.writeText(str);
-      return;
-    }
-    const ta = document.createElement('textarea');
-    ta.value = str;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    ta.remove();
+    return {
+      doneCount: countDone(),
+      jp: jp.join('\n'),
+      au: au.join('\n'),
+      reviews: reviews.join('\n'),
+      general: general.join('\n')
+    };
   }
 
   function refreshUI(persist = false) {
     syncChips();
     syncConditionals();
     updateProgress();
-    summaryPreview.textContent = buildSummary();
     if (persist) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(collectState()));
@@ -355,93 +307,88 @@
   form.addEventListener('input', () => refreshUI(true));
   form.addEventListener('change', () => refreshUI(true));
 
-  // Submit actions
-  document.getElementById('btnWa').addEventListener('click', async () => {
-    const text = buildSummary();
-    const link = buildAnswerLink();
-    const waBase = waTarget ? `https://wa.me/${waTarget}` : 'https://wa.me/';
-    if (encodeURIComponent(text).length <= 1800) {
-      window.open(`${waBase}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-      flashFeedback('Открываем WhatsApp с готовыми ответами.');
-    } else {
-      try { await copyText(text); } catch {}
-      const shortMsg = `Заполнил(а) анкету Noor Travel. Ссылка с ответами: ${link}\n(Полный текст также скопирован в буфер обмена)`;
-      window.open(`${waBase}?text=${encodeURIComponent(shortMsg)}`, '_blank', 'noopener');
-      flashFeedback('Текст длинный — скопировали его в буфер и открыли WhatsApp со ссылкой.');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.querySelector('[name="botcheck"]')?.checked) return;
+
+    const sections = buildSections();
+    if (!sections.jp && !sections.au && !sections.reviews && !sections.general) {
+      sendFeedback.classList.add('is-error');
+      sendFeedback.textContent = 'Похоже, пока не выбран ни один ответ — отметьте нужные пункты и нажмите «Отправить ответы».';
+      return;
+    }
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Отправляем...';
+    sendFeedback.classList.remove('is-error');
+    sendFeedback.textContent = '';
+
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: 'Noor Travel — ответы по анкете для сайта',
+      from_name: 'Анкета Noor Travel',
+      botcheck: false,
+      'Заполнено вопросов': `${sections.doneCount} из ${TOTAL_Q}`
+    };
+    if (sections.jp) payload['1. Тур в Японию'] = sections.jp;
+    if (sections.au) payload['2. Австралия и Новая Зеландия'] = sections.au;
+    if (sections.reviews) payload['3. Отзывы туристов'] = sections.reviews;
+    if (sections.general) payload['4. Общие детали сайта'] = sections.general;
+
+    try {
+      const res = await fetch(WEB3FORMS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (res.ok && result.success) {
+        sendReady.hidden = true;
+        sendSuccess.hidden = false;
+        saveStatus.textContent = 'Отправлено';
+        sendSection?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        throw new Error(result.message || `HTTP ${res.status}`);
+      }
+    } catch (err) {
+      console.error(err);
+      sendFeedback.classList.add('is-error');
+      sendFeedback.textContent = 'Не удалось отправить ответы — проверьте интернет и попробуйте ещё раз.';
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Отправить ответы';
     }
   });
 
-  document.getElementById('btnTg').addEventListener('click', async () => {
-    const link = buildAnswerLink();
-    try { await copyText(buildSummary()); } catch {}
-    const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('Ответы по анкете Noor Travel')}`;
-    window.open(tgUrl, '_blank', 'noopener');
-    flashFeedback('Открываем Telegram со ссылкой на ответы (текст также скопирован).');
-  });
-
-  document.getElementById('btnCopyText').addEventListener('click', async () => {
-    await copyText(buildSummary());
-    flashFeedback('Скопировано — просто вставьте в чат.');
-  });
-
-  document.getElementById('btnCopyLink').addEventListener('click', async () => {
-    await copyText(buildAnswerLink());
-    flashFeedback('Ссылка с ответами скопирована — отправьте её в любой чат.');
-  });
-
-  document.getElementById('btnDownload').addEventListener('click', () => {
-    const blob = new Blob([buildSummary() + '\n'], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'noor-travel-anketa.txt';
-    a.click();
-    URL.revokeObjectURL(url);
-    flashFeedback('Файл noor-travel-anketa.txt скачан.');
+  btnEditAgain.addEventListener('click', () => {
+    sendSuccess.hidden = true;
+    sendReady.hidden = false;
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Отправить ответы';
+    sendFeedback.classList.remove('is-error');
+    sendFeedback.textContent = '';
   });
 
   document.getElementById('btnReset').addEventListener('click', () => {
     if (!confirm('Очистить все ответы в анкете?')) return;
     form.reset();
     try { localStorage.removeItem(STORAGE_KEY); } catch {}
-    if (location.hash.startsWith('#r=')) {
-      history.replaceState(null, '', location.pathname + location.search);
-      readbackBanner.hidden = true;
-    }
+    sendSuccess.hidden = true;
+    sendReady.hidden = false;
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Отправить ответы';
+    sendFeedback.classList.remove('is-error');
+    sendFeedback.textContent = '';
     refreshUI(false);
     saveStatus.textContent = 'Ответы очищены';
   });
 
-  // Read-back banner buttons
-  document.getElementById('btnBannerCopyText').addEventListener('click', async () => {
-    await copyText(buildSummary());
-    flashFeedback('Текст ответов скопирован.');
-  });
-  document.getElementById('btnBannerCopyJson').addEventListener('click', async () => {
-    await copyText(JSON.stringify(collectState(), null, 2));
-    flashFeedback('JSON с ответами скопирован.');
-  });
-  document.getElementById('btnBannerEdit').addEventListener('click', () => {
-    readbackBanner.hidden = true;
-  });
-
-  // Initial hydration: #r= hash takes priority over localStorage draft
-  let hydratedFromHash = false;
-  if (location.hash.startsWith('#r=')) {
-    try {
-      const decoded = decodePayload(location.hash.slice(3));
-      applyState(decoded);
-      readbackBanner.hidden = false;
-      hydratedFromHash = true;
-      saveStatus.textContent = 'Загружено из ссылки';
-    } catch {}
-  }
-  if (!hydratedFromHash) {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) applyState(JSON.parse(saved));
-    } catch {}
-  }
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) applyState(JSON.parse(saved));
+  } catch {}
 
   refreshUI(false);
 })();
