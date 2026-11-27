@@ -1,0 +1,9 @@
+{
+  "name": "noortravel",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Noor Travel — data-driven static website",
+  "scripts": {
+    "build": "node scripts/build.js"
+  }
+}

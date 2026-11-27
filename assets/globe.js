@@ -17,46 +17,22 @@
     return [s1 * a[0] + s2 * b[0], s1 * a[1] + s2 * b[1], s1 * a[2] + s2 * b[2]];
   };
 
-  const ALMATY = { name: 'Алматы', lat: 43.24, lon: 76.89 };
-
-  // Scenes. view(t, mx, my) returns where the globe faces; t is seconds since the globe appeared.
-  // draggable: people can grab and spin it. href on a destination turns its tag into a link to the tour page
-  // (add one per tour as its page goes live; the path is relative to the page the globe is on).
-  const SCENES = {
-    home: {
-      finalT: 9,
-      draggable: true,
-      view: (t, mx, my) => ({ lon: 72 + 46 * Math.sin(t * 0.07) + mx * 30, lat: 24 - my * 14 }),
-      from: ALMATY,
-      to: [
-        { name: 'Япония', lat: 35.68, lon: 139.69, href: 'tours/japan.html' },
-        { name: 'Гонконг', lat: 22.32, lon: 114.17 },
-        { name: 'Куала-Лумпур', lat: 3.14, lon: 101.69 },
-        { name: 'Австралия', lat: -33.87, lon: 151.21, href: 'tours/australia-nz.html' },
-        { name: 'Великобритания', lat: 51.51, lon: -0.13 },
-        { name: 'Исландия', lat: 64.15, lon: -21.94 }
-      ]
-    },
-    japan: {
-      finalT: 9,
-      view: (t, mx, my) => ({ lon: 62 + 50 * easeInOut(t / 6) + 3 * Math.sin(t * 0.1) + mx * 14, lat: 30 - my * 8 }),
-      from: ALMATY,
-      flight: { name: 'Токио', lat: 35.68, lon: 139.69 },
-      train: [[35.68, 139.69], [35.01, 135.77], [34.69, 135.80], [34.69, 135.50]],
-      trainLabel: 'Киото · Нара · Осака'
-    },
-    // Australia + New Zealand: a long flight to Sydney, then short flights between the cities (hops).
-    // City order follows the client's PDF; change it here and on the page together.
-    'australia-nz': {
-      finalT: 10,
-      view: (t, mx, my) => { const e = easeInOut(t / 6.5); return { lon: 72 + 58 * e + 3 * Math.sin(t * 0.1) + mx * 14, lat: 30 - 36 * e - my * 8 }; },
-      from: ALMATY,
-      flight: { name: 'Сидней', lat: -33.87, lon: 151.21, side: 'right' },
-      hops: [
-        { name: 'Мельбурн', lat: -37.81, lon: 144.96, side: 'left' },
-        { name: 'Веллингтон', lat: -41.29, lon: 174.78, side: 'right' }
-      ]
+  const SCENES = window.NOOR_GLOBE_SCENES || {};
+  const makeView = (cam) => {
+    if (!cam) return () => ({ lon: 72, lat: 24 });
+    if (cam.mode === 'sway') {
+      return (t, mx, my) => ({
+        lon: cam.lon + cam.ampLon * Math.sin(t * cam.speed) + mx * 30,
+        lat: cam.lat - my * 14
+      });
     }
+    return (t, mx, my) => {
+      const e = easeInOut(t / (cam.panSec || 6));
+      return {
+        lon: cam.startLon + (cam.endLon - cam.startLon) * e + 3 * Math.sin(t * 0.1) + mx * 14,
+        lat: cam.startLat + ((cam.endLat ?? cam.startLat) - cam.startLat) * e - my * 8
+      };
+    };
   };
 
   const VS = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
@@ -90,6 +66,7 @@
   els.forEach((el) => {
     const scene = SCENES[el.dataset.globe];
     if (!scene) return;
+    const sceneView = typeof scene.view === 'function' ? scene.view : makeView(scene.camera);
 
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
@@ -243,7 +220,7 @@
 
     function draw() {
       if (!W) return;
-      const v = scene.view(t, mx, my);
+      const v = sceneView(t, mx, my);
       lon0 = v.lon + spinLon;
       lat0 = Math.max(-70, Math.min(70, v.lat + spinLat));
 
