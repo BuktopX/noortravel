@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анкета №2: новые туры — Noor Travel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#13203A">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;0,700;1,500&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/anketa.css">
+</head>
+<body class="anketa-page">
+<a class="skip" href="#anketaForm">Перейти к вопросам</a>
+
+<header class="anketa-header">
+  <div class="wrap">
+    <div class="anketa-top">
+      <a class="anketa-brand" href="index.html" aria-label="Noor Travel">
+        <img src="assets/logo/logo-light-bg.svg" alt="Noor Travel" width="112" height="52">
+      </a>
+      <div class="progress-meta">
+        <span class="save-badge" id="saveStatus" aria-live="polite">Черновик сохраняется автоматически</span>
+        <span class="progress-count" id="progressCount">Готово: 0 / 18</span>
+      </div>
+    </div>
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <nav class="section-pills" aria-label="Разделы анкеты">
+      <a href="#sec-japan">1. Япония</a>
+      <a href="#sec-bts-my">2. BTS Малайзия</a>
+      <a href="#sec-bts-hk">3. BTS Гонконг</a>
+      <a href="#sec-skz-milan">4. Stray Kids Милан</a>
+      <a href="#sec-skz-sg">5. Stray Kids Сингапур</a>
+      <a href="#sec-iceland">6. Исландия</a>
+      <a href="#sec-common">7. Общее</a>
+      <a href="#sec-send">Отправка</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap anketa-main" id="main">
+  <section class="anketa-hero">
+    <p class="eyebrow">Уточнения по новым турам</p>
+    <h1>Короткая анкета по новым программам</h1>
+    <p class="lead">Прочитали все 6 программ и PDF — собрали только спорные моменты и недостающие детали. Почти везде достаточно одного нажатия (2–3 минуты).</p>
+  </section>
+
+  <form id="anketaForm" novalidate>
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- РАЗДЕЛ 1: ЯПОНИЯ -->
+    <section class="q-section" id="sec-japan" aria-labelledby="title-japan">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 1 из 7</p>
+        <h2 id="title-japan">Уточнение по Японии</h2>
+      </div>
+
+      <!-- Q1 -->
+      <article class="q-card" data-q="1">
+        <div class="q-head">
+          <span class="q-num">1</span>
+          <h3>Новые даты тура в Японию</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Новые даты тура в Японию">
+          <label class="chip"><input type="radio" name="jp_dates_2" value="Пока написать «Даты уточняются / по запросу»"><span>Пока написать «Даты уточняются / по запросу»</span></label>
+          <label class="chip"><input type="radio" name="jp_dates_2" value="Поставить новые даты"><span>Поставить новые даты</span></label>
+          <label class="chip"><input type="radio" name="jp_dates_2" value="Оставить пока 3–11 декабря"><span>Оставить пока 3–11 декабря</span></label>
+        </div>
+        <div class="cond" data-cond-for="jp_dates_2" data-cond-val="Поставить новые даты" hidden>
+          <input class="input" name="jp_new_dates" type="text" placeholder="Например: 15–23 марта 2027">
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 2: BTS МАЛАЙЗИЯ + БАЛИ + СИНГАПУР -->
+    <section class="q-section" id="sec-bts-my" aria-labelledby="title-bts-my">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 2 из 7</p>
+        <h2 id="title-bts-my">BTS: Малайзия + Бали + Сингапур (1 640 000 ₸, предоплата 350 000 ₸)</h2>
+      </div>
+
+      <!-- Q2 -->
+      <article class="q-card" data-q="2">
+        <div class="q-head">
+          <span class="q-num">2</span>
+          <h3>Год и маршрут тура</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Год выезда (11–22 декабря)</span>
+            <div class="chips" role="radiogroup" aria-label="Год тура BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_year" value="Декабрь 2026"><span>Декабрь 2026</span></label>
+              <label class="chip"><input type="radio" name="bts_my_year" value="Декабрь 2027"><span>Декабрь 2027</span></label>
+              <label class="chip"><input type="radio" name="bts_my_year" value="Даты уточняются"><span>Даты уточняются</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Страны (в тексте только Малайзия, в PDF — 3 страны)</span>
+            <div class="chips" role="radiogroup" aria-label="Страны в туре BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_route" value="Да, 3 страны: Куала-Лумпур → Бали → Сингапур (как в PDF)"><span>Да, 3 страны: Куала-Лумпур → Бали → Сингапур (как в PDF)</span></label>
+              <label class="chip"><input type="radio" name="bts_my_route" value="Только Малайзия (Куала-Лумпур)"><span>Только Малайзия (Куала-Лумпур)</span></label>
+              <label class="chip"><input type="radio" name="bts_my_route" value="Другой вариант"><span>Другой вариант</span></label>
+            </div>
+            <div class="cond" data-cond-for="bts_my_route" data-cond-val="Другой вариант" hidden>
+              <input class="input" name="bts_my_route_custom" type="text" placeholder="Укажите маршрут по странам/городам">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="q-card" data-q="3">
+        <div class="q-head">
+          <span class="q-num">3</span>
+          <h3>Что входит в стоимость (BTS Малайзия)</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Завтраки (в тексте входят, в PDF «питание отдельно»)</span>
+            <div class="chips" role="radiogroup" aria-label="Завтраки в туре BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_breakfast" value="Входят (как в тексте)"><span>Входят (как в тексте)</span></label>
+              <label class="chip"><input type="radio" name="bts_my_breakfast" value="Отдельно (как в PDF)"><span>Отдельно (как в PDF)</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Мед. страховка и помощь с визой (Сингапур / Бали)</span>
+            <div class="chips" role="radiogroup" aria-label="Страховка и виза BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_ins_visa" value="Входят (как в PDF)"><span>Входят (как в PDF)</span></label>
+              <label class="chip"><input type="radio" name="bts_my_ins_visa" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Трансфер аэропорт — отель</span>
+            <div class="chips" role="radiogroup" aria-label="Трансфер BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_transfer" value="Входит"><span>Входит</span></label>
+              <label class="chip"><input type="radio" name="bts_my_transfer" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Багаж</span>
+            <div class="chips" role="radiogroup" aria-label="Багаж BTS Малайзия">
+              <label class="chip"><input type="radio" name="bts_my_baggage" value="20–23 кг + ручная кладь"><span>20–23 кг + ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="bts_my_baggage" value="Только ручная кладь"><span>Только ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="bts_my_baggage" value="Уточним позже"><span>Уточним позже</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 3: BTS ГОНКОНГ + ШАНХАЙ -->
+    <section class="q-section" id="sec-bts-hk" aria-labelledby="title-bts-hk">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 3 из 7</p>
+        <h2 id="title-bts-hk">BTS «ARIRANG»: Гонконг + Шанхай (Март 2027, от 1 200 000 ₸, предоплата 400 000 ₸)</h2>
+      </div>
+
+      <!-- Q4 -->
+      <article class="q-card" data-q="4">
+        <div class="q-head">
+          <span class="q-num">4</span>
+          <h3>Точные даты и длительность</h3>
+        </div>
+        <p class="q-hint">В тексте одновременно указаны «02.03–09.03» (8 дней) и «6 дней / 5 ночей» (как в PDF).</p>
+        <div class="chips" role="radiogroup" aria-label="Даты и длительность BTS Гонконг">
+          <label class="chip"><input type="radio" name="bts_hk_dates" value="Даты 02.03–09.03 (с учётом перелётов)"><span>Даты 02.03–09.03 (с учётом перелётов)</span></label>
+          <label class="chip"><input type="radio" name="bts_hk_dates" value="6 дней / 5 ночей (точные даты укажу ниже)"><span>6 дней / 5 ночей (точные даты укажу ниже)</span></label>
+          <label class="chip"><input type="radio" name="bts_hk_dates" value="Другие даты"><span>Другие даты</span></label>
+        </div>
+        <div class="cond" data-cond-for="bts_hk_dates" data-cond-val="6 дней / 5 ночей (точные даты укажу ниже)|Другие даты" hidden>
+          <input class="input" name="bts_hk_dates_custom" type="text" placeholder="Например: 02.03–07.03.2027">
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="q-card" data-q="5">
+        <div class="q-head">
+          <span class="q-num">5</span>
+          <h3>Детали тура Гонконг + Шанхай</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Мед. страховка (есть в PDF, нет в тексте)</span>
+            <div class="chips" role="radiogroup" aria-label="Мед. страховка BTS Гонконг">
+              <label class="chip"><input type="radio" name="bts_hk_ins" value="Входит в тур"><span>Входит в тур</span></label>
+              <label class="chip"><input type="radio" name="bts_hk_ins" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Багаж на перелётах</span>
+            <div class="chips" role="radiogroup" aria-label="Багаж BTS Гонконг">
+              <label class="chip"><input type="radio" name="bts_hk_baggage" value="20–23 кг + ручная кладь"><span>20–23 кг + ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="bts_hk_baggage" value="Только ручная кладь"><span>Только ручная кладь</span></label>
+              <label class="chip"><input type="radio" name="bts_hk_baggage" value="Уточним позже"><span>Уточним позже</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Указать на сайте «Без визы для граждан РК» (Гонконг и Китай)</span>
+            <div class="chips" role="radiogroup" aria-label="Безвиз для граждан РК">
+              <label class="chip"><input type="radio" name="bts_hk_visafree" value="Да, указать «без визы»"><span>Да, указать «без визы»</span></label>
+              <label class="chip"><input type="radio" name="bts_hk_visafree" value="Не указывать"><span>Не указывать</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 4: STRAY KIDS В МИЛАНЕ -->
+    <section class="q-section" id="sec-skz-milan" aria-labelledby="title-skz-milan">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 4 из 7</p>
+        <h2 id="title-skz-milan">Stray Kids в Милане</h2>
+      </div>
+
+      <!-- Q6 -->
+      <article class="q-card" data-q="6">
+        <div class="q-head">
+          <span class="q-num">6</span>
+          <h3>Как показать два варианта тура в Милан?</h3>
+        </div>
+        <p class="q-hint">У вас два пакета на один концерт: короткий VIP (30.07–02.08 за 1 390 000 ₸) и Полный Евротур (26.07–03.08: Барселона + Париж + Милан + Комо за 1 620 000 ₸).</p>
+        <div class="chips" role="radiogroup" aria-label="Формат показа туров в Милан">
+          <label class="chip"><input type="radio" name="skz_mi_layout" value="На одной странице как 2 тарифа (Короткий VIP и Полный Евротур)"><span>На одной странице как 2 тарифа (Короткий VIP и Полный Евротур)</span></label>
+          <label class="chip"><input type="radio" name="skz_mi_layout" value="Как две отдельные страницы туров"><span>Как две отдельные страницы туров</span></label>
+          <label class="chip"><input type="radio" name="skz_mi_layout" value="Оставить только Полный Евротур"><span>Оставить только Полный Евротур</span></label>
+          <label class="chip"><input type="radio" name="skz_mi_layout" value="Оставить только Короткий VIP"><span>Оставить только Короткий VIP</span></label>
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="q-card" data-q="7">
+        <div class="q-head">
+          <span class="q-num">7</span>
+          <h3>Год, вылет и билеты (Stray Kids Милан)</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Год выезда</span>
+            <div class="chips" role="radiogroup" aria-label="Год тура Stray Kids Милан">
+              <label class="chip"><input type="radio" name="skz_mi_year" value="Июль–август 2027"><span>Июль–август 2027</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_year" value="Июль–август 2026"><span>Июль–август 2026</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_year" value="Другой"><span>Другой</span></label>
+            </div>
+            <div class="cond" data-cond-for="skz_mi_year" data-cond-val="Другой" hidden>
+              <input class="input" name="skz_mi_year_custom" type="text" placeholder="Укажите год / даты">
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Вылет в коротком VIP-туре (30.07–02.08)</span>
+            <div class="chips" role="radiogroup" aria-label="Вылет короткого VIP-тура">
+              <label class="chip"><input type="radio" name="skz_mi_vip_dep" value="Из Алматы"><span>Из Алматы</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_vip_dep" value="Из Астаны"><span>Из Астаны</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_vip_dep" value="Алматы или Астана"><span>Алматы или Астана</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Категория билета в Полном Евротуре (1 620 000 ₸)</span>
+            <div class="chips" role="radiogroup" aria-label="Билет в Полном Евротуре">
+              <label class="chip"><input type="radio" name="skz_mi_euro_ticket" value="Стандарт / трибуна"><span>Стандарт / трибуна</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_euro_ticket" value="Фан-зона / танцпол"><span>Фан-зона / танцпол</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_euro_ticket" value="VIP"><span>VIP</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_euro_ticket" value="Уточним позже"><span>Уточним позже</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Завтраки в отелях (в PDF на последний день указан «завтрак в отеле», а в условиях — «питание отдельно»)</span>
+            <div class="chips" role="radiogroup" aria-label="Завтраки в Stray Kids Милан">
+              <label class="chip"><input type="radio" name="skz_mi_breakfast" value="Завтраки входят"><span>Завтраки входят</span></label>
+              <label class="chip"><input type="radio" name="skz_mi_breakfast" value="Все приёмы пищи отдельно"><span>Все приёмы пищи отдельно</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 5: STRAY KIDS ЛАНГКАВИ + СИНГАПУР -->
+    <section class="q-section" id="sec-skz-sg" aria-labelledby="title-skz-sg">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 5 из 7</p>
+        <h2 id="title-skz-sg">Stray Kids: Лангкави + Сингапур (1 350 000 ₸)</h2>
+      </div>
+
+      <!-- Q8 -->
+      <article class="q-card" data-q="8">
+        <div class="q-head">
+          <span class="q-num">8</span>
+          <h3>Даты и длительность</h3>
+        </div>
+        <p class="q-hint">В PDF даты 02.03–07.03 (та же неделя, что и BTS Гонконг), а после 5-го дня сразу слайд «День 7».</p>
+        <div class="chips" role="radiogroup" aria-label="Даты и длительность Stray Kids Сингапур">
+          <label class="chip"><input type="radio" name="skz_sg_dates" value="2–7 марта 2027 (6 дней, параллельно с Гонконгом)"><span>2–7 марта 2027 (6 дней, параллельно с Гонконгом)</span></label>
+          <label class="chip"><input type="radio" name="skz_sg_dates" value="2–8 марта 2027 (7 дней)"><span>2–8 марта 2027 (7 дней)</span></label>
+          <label class="chip"><input type="radio" name="skz_sg_dates" value="Другие даты"><span>Другие даты</span></label>
+        </div>
+        <div class="cond" data-cond-for="skz_sg_dates" data-cond-val="Другие даты" hidden>
+          <input class="input" name="skz_sg_dates_custom" type="text" placeholder="Укажите точные даты">
+        </div>
+      </article>
+
+      <!-- Q9 -->
+      <article class="q-card" data-q="9">
+        <div class="q-head">
+          <span class="q-num">9</span>
+          <h3>Детали тура Лангкави + Сингапур</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Визовая поддержка в Сингапур (есть в тексте, нет в PDF)</span>
+            <div class="chips" role="radiogroup" aria-label="Визовая поддержка в Сингапур">
+              <label class="chip"><input type="radio" name="skz_sg_visa" value="Входит в тур"><span>Входит в тур</span></label>
+              <label class="chip"><input type="radio" name="skz_sg_visa" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Завтраки в отелях</span>
+            <div class="chips" role="radiogroup" aria-label="Завтраки в туре Лангкави и Сингапур">
+              <label class="chip"><input type="radio" name="skz_sg_breakfast" value="Входят"><span>Входят</span></label>
+              <label class="chip"><input type="radio" name="skz_sg_breakfast" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Категория билета на концерт</span>
+            <div class="chips" role="radiogroup" aria-label="Билет на концерт в Сингапуре">
+              <label class="chip"><input type="radio" name="skz_sg_ticket" value="Стандарт / трибуна"><span>Стандарт / трибуна</span></label>
+              <label class="chip"><input type="radio" name="skz_sg_ticket" value="Фан-зона"><span>Фан-зона</span></label>
+              <label class="chip"><input type="radio" name="skz_sg_ticket" value="VIP"><span>VIP</span></label>
+              <label class="chip"><input type="radio" name="skz_sg_ticket" value="Уточним позже"><span>Уточним позже</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 6: ЕВРОТУР ИСЛАНДИЯ -->
+    <section class="q-section" id="sec-iceland" aria-labelledby="title-iceland">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 6 из 7</p>
+        <h2 id="title-iceland">Евротур: Исландия (2 200 000 ₸, 11–19 января)</h2>
+      </div>
+
+      <!-- Q10 -->
+      <article class="q-card" data-q="10">
+        <div class="q-head">
+          <span class="q-num">10</span>
+          <h3>Порядок городов и год</h3>
+        </div>
+        <p class="q-hint">В тексте указано «Милан → Амстердам → Исландия», а в PDF на карте и по дням — «Милан → Исландия → Амстердам».</p>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Порядок городов</span>
+            <div class="chips" role="radiogroup" aria-label="Порядок городов в туре Исландия">
+              <label class="chip"><input type="radio" name="ice_order" value="Милан → Исландия → Амстердам (как в PDF)"><span>Милан → Исландия → Амстердам (как в PDF)</span></label>
+              <label class="chip"><input type="radio" name="ice_order" value="Милан → Амстердам → Исландия (как в тексте)"><span>Милан → Амстердам → Исландия (как в тексте)</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Год выезда (11–19 января)</span>
+            <div class="chips" role="radiogroup" aria-label="Год тура Исландия">
+              <label class="chip"><input type="radio" name="ice_year" value="Январь 2027"><span>Январь 2027</span></label>
+              <label class="chip"><input type="radio" name="ice_year" value="Январь 2028"><span>Январь 2028</span></label>
+              <label class="chip"><input type="radio" name="ice_year" value="Другие даты"><span>Другие даты</span></label>
+            </div>
+            <div class="cond" data-cond-for="ice_year" data-cond-val="Другие даты" hidden>
+              <input class="input" name="ice_year_custom" type="text" placeholder="Укажите даты">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q11 -->
+      <article class="q-card" data-q="11">
+        <div class="q-head">
+          <span class="q-num">11</span>
+          <h3>Вылет и условия (Исландия)</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Город вылета</span>
+            <div class="chips" role="radiogroup" aria-label="Вылет в Исландию">
+              <label class="chip"><input type="radio" name="ice_dep" value="Из Алматы"><span>Из Алматы</span></label>
+              <label class="chip"><input type="radio" name="ice_dep" value="Из Астаны"><span>Из Астаны</span></label>
+              <label class="chip"><input type="radio" name="ice_dep" value="Алматы или Астана"><span>Алматы или Астана</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Завтраки в отелях</span>
+            <div class="chips" role="radiogroup" aria-label="Завтраки в туре Исландия">
+              <label class="chip"><input type="radio" name="ice_breakfast" value="Входят"><span>Входят</span></label>
+              <label class="chip"><input type="radio" name="ice_breakfast" value="Отдельно"><span>Отдельно</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">В PDF на стр. 11 указано «Билет на концерт» — убираем?</span>
+            <div class="chips" role="radiogroup" aria-label="Опечатка про билет на концерт в Исландии">
+              <label class="chip"><input type="radio" name="ice_concert_typo" value="Да, это опечатка, убираем"><span>Да, это опечатка, убираем</span></label>
+              <label class="chip"><input type="radio" name="ice_concert_typo" value="Нет, оставить"><span>Нет, оставить</span></label>
+            </div>
+            <div class="cond" data-cond-for="ice_concert_typo" data-cond-val="Нет, оставить" hidden>
+              <input class="input" name="ice_concert_custom" type="text" placeholder="Поясните, какой концерт включён">
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- РАЗДЕЛ 7: ОБЩИЕ УСЛОВИЯ ДЛЯ НОВЫХ ТУРОВ -->
+    <section class="q-section" id="sec-common" aria-labelledby="title-common">
+      <div class="q-section-head">
+        <p class="eyebrow">Раздел 7 из 7</p>
+        <h2 id="title-common">Общие условия для новых туров</h2>
+      </div>
+
+      <!-- Q12 -->
+      <article class="q-card" data-q="12">
+        <div class="q-head">
+          <span class="q-num">12</span>
+          <h3>Размер групп в новых турах</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Размер групп в новых турах">
+          <label class="chip"><input type="radio" name="new_group" value="До 8 человек (как в Австралии)"><span>До 8 человек (как в Австралии)</span></label>
+          <label class="chip"><input type="radio" name="new_group" value="До 6 человек"><span>До 6 человек</span></label>
+          <label class="chip"><input type="radio" name="new_group" value="До 10–12 человек"><span>До 10–12 человек</span></label>
+          <label class="chip"><input type="radio" name="new_group" value="На концертные туры больше"><span>На концертные туры больше</span></label>
+        </div>
+        <div class="cond" data-cond-for="new_group" data-cond-val="На концертные туры больше" hidden>
+          <input class="input" name="new_group_custom" type="text" placeholder="Например: концертные до 15 чел., Исландия до 8">
+        </div>
+      </article>
+
+      <!-- Q13 -->
+      <article class="q-card" data-q="13">
+        <div class="q-head">
+          <span class="q-num">13</span>
+          <h3>Предоплата и возврат для Stray Kids и Исландии</h3>
+        </div>
+        <p class="q-hint">Для BTS предоплата уже известна: 350 000 ₸ (Малайзия) и 400 000 ₸ (Гонконг).</p>
+        <div class="chips" role="radiogroup" aria-label="Предоплата и возврат для Stray Kids и Исландии">
+          <label class="chip"><input type="radio" name="new_pay" value="200 000 ₸ предоплата, остаток после визы, при отказе возврат 50%"><span>200 000 ₸ предоплата, остаток после визы, при отказе возврат 50%</span></label>
+          <label class="chip"><input type="radio" name="new_pay" value="350 000–400 000 ₸ (как на BTS)"><span>350 000–400 000 ₸ (как на BTS)</span></label>
+          <label class="chip"><input type="radio" name="new_pay" value="Разные условия (укажу ниже)"><span>Разные условия (укажу ниже)</span></label>
+        </div>
+        <div class="cond" data-cond-for="new_pay" data-cond-val="Разные условия (укажу ниже)" hidden>
+          <textarea class="input textarea" name="new_pay_custom" rows="3" placeholder="Напишите сумму предоплаты и условия возврата по турам"></textarea>
+        </div>
+      </article>
+
+      <!-- Q14 -->
+      <article class="q-card" data-q="14">
+        <div class="q-head">
+          <span class="q-num">14</span>
+          <h3>Консульские визовые сборы (Шенген / Сингапур / Бали)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Консульские сборы">
+          <label class="chip"><input type="radio" name="new_visa_fee" value="Оплачиваются отдельно (как в Австралии)"><span>Оплачиваются отдельно (как в Австралии)</span></label>
+          <label class="chip"><input type="radio" name="new_visa_fee" value="Входят в стоимость тура"><span>Входят в стоимость тура</span></label>
+          <label class="chip"><input type="radio" name="new_visa_fee" value="Зависит от тура"><span>Зависит от тура</span></label>
+        </div>
+        <div class="cond" data-cond-for="new_visa_fee" data-cond-val="Зависит от тура" hidden>
+          <input class="input" name="new_visa_fee_custom" type="text" placeholder="Уточните, где входит, а где отдельно">
+        </div>
+      </article>
+
+      <!-- Q15 -->
+      <article class="q-card" data-q="15">
+        <div class="q-head">
+          <span class="q-num">15</span>
+          <h3>Язык гида и темп в новых турах</h3>
+        </div>
+        <div class="sub-rows">
+          <div class="sub-row">
+            <span class="sub-label">Гид и сопровождение (можно выбрать несколько)</span>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="new_guide" value="Русский"><span>Русский</span></label>
+              <label class="chip"><input type="checkbox" name="new_guide" value="Казахский"><span>Казахский</span></label>
+              <label class="chip"><input type="checkbox" name="new_guide" value="Английский"><span>Английский</span></label>
+              <label class="chip"><input type="checkbox" name="new_guide" value="Сопровождающий Noor Travel из РК"><span>Сопровождающий Noor Travel из РК</span></label>
+            </div>
+          </div>
+          <div class="sub-row">
+            <span class="sub-label">Темп программы</span>
+            <div class="chips" role="radiogroup" aria-label="Темп в новых турах">
+              <label class="chip"><input type="radio" name="new_pace" value="Насыщенный (как в Японии)"><span>Насыщенный (как в Японии)</span></label>
+              <label class="chip"><input type="radio" name="new_pace" value="Умеренный"><span>Умеренный</span></label>
+              <label class="chip"><input type="radio" name="new_pace" value="Зависит от тура"><span>Зависит от тура</span></label>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q16 -->
+      <article class="q-card" data-q="16">
+        <div class="q-head">
+          <span class="q-num">16</span>
+          <h3>Визуальный стиль страниц концертных туров (BTS / Stray Kids)</h3>
+        </div>
+        <div class="chips" role="radiogroup" aria-label="Визуальный стиль концертных туров">
+          <label class="chip"><input type="radio" name="concert_visual" value="Единый стиль сайта (иллюстрации городов, как Япония и Австралия)"><span>Единый стиль сайта (иллюстрации городов, как Япония и Австралия)</span></label>
+          <label class="chip"><input type="radio" name="concert_visual" value="Добавить фото/афиши концертов (из ваших PDF)"><span>Добавить фото/афиши концертов (из ваших PDF)</span></label>
+          <label class="chip"><input type="radio" name="concert_visual" value="На усмотрение дизайнера"><span>На усмотрение дизайнера</span></label>
+        </div>
+      </article>
+
+      <!-- Q17 -->
+      <article class="q-card" data-q="17">
+        <div class="q-head">
+          <span class="q-num">17</span>
+          <h3>Какие туры выводить на главную страницу сейчас?</h3>
+        </div>
+        <p class="q-hint">Все актуальные туры уже отмечены — снимите галочку с того, что пока не публикуем.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="home_tours" value="Япония" checked><span>Япония</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="Австралия и Новая Зеландия (Australian Open)" checked><span>Австралия и Новая Зеландия (Australian Open)</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="Евротур: Исландия" checked><span>Евротур: Исландия</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="BTS: Малайзия + Бали + Сингапур" checked><span>BTS: Малайзия + Бали + Сингапур</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="BTS «ARIRANG»: Гонконг + Шанхай" checked><span>BTS «ARIRANG»: Гонконг + Шанхай</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="Stray Kids: Милан (VIP + Комо)" checked><span>Stray Kids: Милан (VIP + Комо)</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="Stray Kids: Евротур (Барселона + Париж + Милан + Комо)" checked><span>Stray Kids: Евротур (Барселона + Париж + Милан + Комо)</span></label>
+          <label class="chip"><input type="checkbox" name="home_tours" value="Stray Kids: Лангкави + Сингапур" checked><span>Stray Kids: Лангкави + Сингапур</span></label>
+        </div>
+        <div class="extra-toggle">
+          <label class="chip"><input type="checkbox" name="keep_soon" value="Оставить в блоке «Скоро»: Рождественский Евротур и Великобритания" checked><span>Оставить в блоке «Скоро»: Рождественский Евротур и Великобритания</span></label>
+        </div>
+      </article>
+
+      <!-- Q18 -->
+      <article class="q-card" data-q="18">
+        <div class="q-head">
+          <span class="q-num">18</span>
+          <h3>Дополнительные комментарии или уточнения</h3>
+        </div>
+        <textarea class="input textarea" name="notes2" rows="3" placeholder="Любые правки по ценам, датам, отелям или приоритету запуска"></textarea>
+      </article>
+    </section>
+
+    <!-- ОТПРАВКА ОТВЕТОВ -->
+    <section class="send-card on-navy" id="sec-send" aria-labelledby="title-send">
+      <div id="sendReady">
+        <div class="send-head">
+          <p class="eyebrow">Последний шаг</p>
+          <h2 id="title-send">Сохранить и отправить ответы</h2>
+          <p class="lead">Нажмите кнопку ниже — ваши ответы сразу сохранятся и отправятся нам. Если позже захотите что-то дополнить, анкету можно отправить повторно.</p>
+        </div>
+        <div class="send-actions">
+          <button type="submit" class="btn btn-primary btn-submit" id="btnSubmit">Отправить ответы</button>
+        </div>
+        <p class="send-feedback" id="sendFeedback" aria-live="polite"></p>
+      </div>
+
+      <div class="send-success" id="sendSuccess" hidden>
+        <div class="send-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <div class="send-head">
+          <h2>Спасибо! Ответы сохранены</h2>
+          <p class="lead">Мы уже получили ваши ответы — ничего дополнительно пересылать не нужно.</p>
+        </div>
+        <div class="send-actions">
+          <button type="button" class="btn btn-ghost" id="btnEditAgain">Изменить и отправить повторно</button>
+        </div>
+      </div>
+    </section>
+
+  </form>
+
+  <footer class="anketa-footer">
+    <span>Noor Travel · анкета №2 по новым турам</span>
+    <button type="button" class="reset-btn" id="btnReset">Очистить ответы</button>
+  </footer>
+</main>
+
+<script src="assets/anketa-2.js"></script>
+</body>
+</html>
